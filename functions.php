@@ -40,8 +40,23 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 // Use this as a template for custom post types
 require_once(get_template_directory().'/functions/cpt-strains.php');
 
+
 // Customize the WordPress login menu
 // require_once(get_template_directory().'/functions/login.php');
 
 // Customize the WordPress admin
 // require_once(get_template_directory().'/functions/admin.php');
+
+
+add_theme_support( 'custom-logo' );
+function bitlore_custom_logo_setup() {
+ $defaults = array(
+ 'height'      => 100,
+ 'width'       => 100,
+ 'flex-height' => false,
+ 'flex-width'  => false,
+ 'header-text' => array( 'site-title', 'site-description' ),
+ );
+ add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'bitlore_custom_logo_setup' );

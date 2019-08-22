@@ -444,3 +444,36 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     position: absolute !important;
     left: -9000px;
 }
+
+.display-flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-between {
+	justify-content: space-between;
+}
+.justify-around {
+	justify-content: space-around;
+}
+.justify-end {
+	justify-content: flex-end;
+}
+.align-middle {
+	align-items: center;
+}
+.direction-column {
+	flex-direction: column;
+}
+
+$row-max-width: 1400px;
+
+.grid-x {
+	max-width: $row-max-width;
+	margin: 0 auto;
+}
