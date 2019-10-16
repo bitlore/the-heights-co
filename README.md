@@ -1,19 +1,17 @@
 Currently using Foundation 6.5.3.
 
-## JointsWP Requirements
-JointsWP requires [Node.js](https://nodejs.org) v6.9.x or newer. This doesn't mean you need to understand Node (or even Gulp) - it's just the steps we need to take to make sure all of our development tools are installed. 
+## The Heights Co. Theme Requirements
+This theme requires [Node.js](https://nodejs.org) v6.9.x or newer. This doesn't mean you need to understand Node (or even Gulp) - it's just the steps we need to take to make sure all of our development tools are installed.
 
-## Getting Started 
-### Download JointsWP and install dependencies with npm 
+## Getting Started
+### Install dependencies with npm
 ```bash
-$ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://github.com/JeremyEnglert/JointsWP.git
-$ cd JointsWP
+Navigate to the theme root and run
 $ npm install
 ```
-At this point, JointsWP should be installed and fully running on your local machine. If you prefer to install the theme manually, that will work as well - just be sure to run `npm install` after manually moving the files into the `/themes/` directory.
 
-## Working with JointsWP
+
+## Working with the theme
 ### Watching for Changes
 ```bash
 $ npm run watch
@@ -26,7 +24,7 @@ $ npm run watch
 ```bash
 $ npm run browsersync
 ```
-This will watch the same files as `npm run watch`, but utilizes browsersync for live reloading and style injection. Be sure to update the `URL` variable in the `gulpfile.js` to your local install URL. 
+This will watch the same files as `npm run watch`, but utilizes browsersync for live reloading and style injection. Be sure to update the `URL` variable in the `gulpfile.js` to your local install URL.
 
 ## Compile and Minify All Theme Assets
 ```bash
