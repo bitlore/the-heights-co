@@ -60,3 +60,18 @@ function bitlore_custom_logo_setup() {
  add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'bitlore_custom_logo_setup' );
+
+
+# Initiate Global settings
+if(function_exists('acf_add_options_page')){
+	acf_add_options_page(
+    array(
+  		'page_title' 	=> __('Global Content', 'my_text_domain'),
+  		'menu_title'	=> __('Global Content', 'my_text_domain'),
+  		'menu_slug' 	=> 'global-content',
+  		'capability'	=> 'edit_posts',
+      'icon_url'    => get_template_directory_uri() . '/assets/images/logo_20x20.png',
+  		'redirect'		=> false
+	  )
+  );
+}

@@ -1,0 +1,51 @@
+/************************************************
+
+Stylesheet: Navigation
+
+*************************************************/
+
+header.header {
+	a.logo-link {
+		display: inline-flex;
+	}
+	img.custom-logo {
+		width: 500px;
+	}
+	p.header-text {
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-family: $font_secondary;
+		position:relative;
+		top: 150px;
+	}
+}
+
+nav.navigation {
+	background: $black;
+	ul {
+		list-style-type: none;
+		margin-left: 0px;
+		margin-bottom: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		padding-left: 0px;
+		justify-content: center;
+		@include media-max($large) {
+			justify-content: space-between;
+		}
+	}
+	li {
+		width: 15%;
+		text-align: center;
+	}
+	li a {
+		color: $white;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-decoration: none;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		display: block;
+	}
+}

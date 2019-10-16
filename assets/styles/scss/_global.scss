@@ -445,12 +445,24 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     left: -9000px;
 }
 
+a.image-link {
+	display: block;
+}
+
 .display-flex {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+}
+.display-inline-flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: inline-flex;
 }
 .justify-center {
 	justify-content: center;
@@ -464,14 +476,28 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
 .justify-end {
 	justify-content: flex-end;
 }
-.align-middle {
+.align-middle, .align-center {
 	align-items: center;
+}
+.align-baseline {
+	align-items: baseline;
+}
+.align-top {
+	align-items: top;
 }
 .direction-column {
 	flex-direction: column;
 }
 
-$row-max-width: 1400px;
+.section-padding {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.row-padding {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
 
 .grid-x {
 	max-width: $row-max-width;

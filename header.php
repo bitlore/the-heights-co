@@ -38,15 +38,18 @@
 
 		<div class="off-canvas-wrapper">
 
-			<!-- Load off-canvas container. Feel free to remove if not using. -->
-			<?php get_template_part( 'parts/content', 'offcanvas' ); ?>
-
 			<div class="off-canvas-content" data-off-canvas-content>
 
 				<header class="header" role="banner">
-
-					 <!-- This navs will be applied to the topbar, above all content
-						  To see additional nav styles, visit the /parts directory -->
+                    <div class="header-top grid-x grid-padding-x section-padding">
+                		<div class="cell small-12 align-center justify-center display-flex">
+                            <p class="header-text"><?php echo get_field('header_left_text', 'option'); ?></p>
+                            <a class="image-link logo-link" href="<?php echo home_url(); ?>">
+                                <img class="custom-logo" src="<?php echo get_field('header_logo', 'option')['url']; ?>" alt="The Heights Co. Logo">
+                            </a>
+                            <p class="header-text"><?php echo get_field('header_right_text', 'option'); ?></p>
+                		</div>
+                	</div>
 					 <?php get_template_part( 'parts/nav', 'the-heights' ); ?>
 
 				</header> <!-- end .header -->

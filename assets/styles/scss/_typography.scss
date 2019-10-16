@@ -1,0 +1,97 @@
+/************************************************
+
+Stylesheet: Typography
+
+*************************************************/
+
+$font_secondary: 'Andale Mono', 'Monotype', 'Courier New';
+$font_primary: 'Helvetica', 'Arial', sans-serif;
+
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    font-family: $font-primary;
+    box-sizing: border-box;
+}
+h1{
+  font-family: $font_primary;
+  font-weight: 600;
+  font-size: rem(64);
+  line-height: rem(74);
+  text-transform: uppercase;
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(30);
+      line-height: rem(39);
+  }
+}
+h2{
+  font-family: $font_primary;
+  font-weight: 600;
+  font-size: rem(54);
+  line-height: rem(64);
+  // text-transform: uppercase;
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(30);
+      line-height: rem(39);
+      text-transform: none;
+  }
+}
+h3{
+  font-family: $font_primary;
+  font-weight: 600;
+  font-size: rem(50);
+  line-height: rem(60);
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(30);
+      line-height: rem(39);
+  }
+}
+h4{
+  font-family: $font_primary;
+  font-weight: 600;
+  font-size: rem(36);
+  line-height: rem(48);
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(30);
+      line-height: rem(39);
+  }
+}
+h5{
+  font-family: $font_primary;
+  font-weight: 400;
+  font-size: rem(26);
+  line-height: rem(34);
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(26);
+      line-height: rem(34);
+  }
+}
+h6{
+  font-family: $font_primary;
+  font-weight: 400;
+  font-size: rem(24);
+  line-height: rem(32);
+  color: $black;
+  @include media-max($medium) {
+      font-size: rem(24);
+      line-height: rem(32);
+  }
+}
+p {
+    font-family: $font_primary;
+    font-size: rem(18);
+    line-height: rem(28);
+    font-weight: 300;
+    color: $black;
+    @include media-max($medium) {
+        font-size: rem(14);
+        line-height: rem(22);
+    }
+}
