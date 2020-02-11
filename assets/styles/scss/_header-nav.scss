@@ -1,10 +1,30 @@
 /************************************************
 
-Stylesheet: Navigation
+Stylesheet: Navigation and Header
 
 *************************************************/
 
+
 header.header {
+	background: $purple;
+	position: relative;
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: linear-gradient(0.30turn,rgba(0,0,0,.9),rgba(255,0,0,0) 95%);
+	}
+	.header-top {
+		position: relative;
+		z-index: 1;
+	}
 	.head-wrap {
 		padding-bottom: 10px;
 	}
@@ -20,9 +40,10 @@ header.header {
 	}
 	p.header-text {
 		text-align: center;
+		color: $white;
 		text-transform: uppercase;
 		font-family: $font_tertiary;
-		font-size: 14px;
+		font-size: rem(14);
 		line-height:1.2em;
 		position:relative;
 		top: 150px;
@@ -35,6 +56,7 @@ header.header {
 nav.navigation {
 	background: $black;
 	position: relative;
+	z-index: 1;
 	&:before {
 		content: url(../images/menu-tab.svg);
 		display: block;
@@ -66,7 +88,7 @@ nav.navigation {
 		color: $white;
 		font-family: $font_secondary;
 		letter-spacing: 2px;
-		font-size: 21px;
+		font-size: rem(21);
 		text-transform: uppercase;
 		text-decoration: none;
 		padding-top: 25px;

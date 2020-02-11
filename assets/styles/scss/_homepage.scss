@@ -8,4 +8,25 @@ Stylesheet: Home
     .main-image {
         height: 850px;
     }
+    .content-wrap {
+        background: $black;
+    }
+    .home-content {
+        max-width: 1220px;
+        h2 {
+            letter-spacing: 5px;
+        }
+        h2, p, span, a, * {
+            color: $white;
+        }
+        p {
+            font-size: rem(26);
+            line-height: rem(50);
+            margin-top: 0px;
+            @include media-max($medium) {
+                font-size: rem(20);
+                line-height: rem(44);
+            }
+        }
+    }
 }

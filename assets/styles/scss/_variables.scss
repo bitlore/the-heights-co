@@ -4,9 +4,14 @@ Stylesheet: Variables;
 
 *************************************************/
 
+@function rem($px,$rembase:16){
+	@return ($px/$rembase)+rem;
+}
+
 $row-max-width: 1400px;
 $medium: 768px;
 $large: 1024px;
 
 $black: #000000;
 $white: #ffffff;
+$purple: #2c152c;

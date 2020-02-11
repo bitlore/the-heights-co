@@ -1,0 +1,56 @@
+/************************************************
+
+Stylesheet: Footer
+
+*************************************************/
+
+
+footer.footer {
+    background: $purple;
+	position: relative;
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: linear-gradient(0.30turn,rgba(0,0,0,.9),rgba(255,0,0,0) 95%);
+	}
+    .footer-wrap {
+        position: relative;
+        z-index: 1;
+    }
+    h6, p, a {
+        color: $white;
+        margin: 0;
+    }
+    h6 {
+        letter-spacing: 2px;
+    }
+    ul {
+        margin: 0;
+        list-style-type: none;
+        padding-left: 2vw;
+    }
+    .footer-link {
+        display: block;
+        text-decoration: none;
+        font-family: $font_secondary;
+        white-space: nowrap;
+        &:hover {
+            text-decoration: underline;
+            transition: all 300ms ease;
+        }
+    }
+    .footer-icon {
+        width: 30px;
+        height: 30px;
+        margin: 10px 10px 10px 10px;
+        display: inline-block;
+    }
+}

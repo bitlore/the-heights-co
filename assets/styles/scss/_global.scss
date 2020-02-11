@@ -4,6 +4,15 @@ Stylesheet: Global Stylesheet
 
 *************************************************/
 
+
+/*********************
+Hide Scrollbar
+*********************/
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -414,7 +423,6 @@ FOOTER STYLES
 *********************/
 .footer {
 	clear: both;
-	margin-top: 1em;
 }
 
 /*********************
@@ -467,6 +475,9 @@ a.image-link {
 .justify-center {
 	justify-content: center;
 }
+.text-center {
+	text-align: center;
+}
 .justify-between {
 	justify-content: space-between;
 }
@@ -498,6 +509,10 @@ a.image-link {
 	padding-top: 60px;
 }
 
+.section-bottom-padding {
+	padding-bottom: 60px;
+}
+
 .row-padding {
 	padding-top: 40px;
 	padding-bottom: 40px;
@@ -505,6 +520,10 @@ a.image-link {
 
 .row-top-padding {
 	padding-top: 40px;
+}
+
+.row-bottom-padding {
+	padding-bottom: 40px;
 }
 
 .grid-x {

@@ -45,20 +45,21 @@ h1{
   text-transform: uppercase;
   color: $black;
   @include media-max($medium) {
-      font-size: rem(30);
-      line-height: rem(39);
+      font-size: rem(52);
+      line-height: rem(59);
   }
 }
 h2{
   font-family: $font_secondary;
   font-weight: 600;
-  font-size: rem(54);
+  font-size: rem(57);
   line-height: rem(64);
-  // text-transform: uppercase;
+  text-transform: uppercase;
   color: $black;
+  margin: 40px 0px;
   @include media-max($medium) {
-      font-size: rem(30);
-      line-height: rem(39);
+      font-size: rem(45);
+      line-height: rem(52);
       text-transform: none;
   }
 }
@@ -69,8 +70,8 @@ h3{
   line-height: rem(60);
   color: $black;
   @include media-max($medium) {
-      font-size: rem(30);
-      line-height: rem(39);
+      font-size: rem(38);
+      line-height: rem(47);
   }
 }
 h4{
@@ -98,12 +99,13 @@ h5{
 h6{
   font-family: $font_secondary;
   font-weight: 400;
-  font-size: rem(24);
-  line-height: rem(32);
+  font-size: rem(20);
+  text-transform: uppercase;
+  line-height: rem(28);
   color: $black;
   @include media-max($medium) {
-      font-size: rem(24);
-      line-height: rem(32);
+      font-size: rem(20);
+      line-height: rem(28);
   }
 }
 p {
