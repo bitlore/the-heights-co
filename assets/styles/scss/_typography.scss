@@ -4,9 +4,31 @@ Stylesheet: Typography
 
 *************************************************/
 
-$font_secondary: 'Andale Mono', 'Monotype', 'Courier New';
-$font_primary: 'Helvetica', 'Arial', sans-serif;
 
+
+@font-face {
+  font-family: "UnitedSansRegMed";
+  src: url("../fonts/UnitedSansRgMd.otf") format('opentype');
+}
+
+@font-face {
+  font-family: "UnitedSansRegHev";
+  src: url("../fonts/UnitedSansRgHv.otf") format('opentype');
+}
+
+@font-face {
+  font-family: "TradeGoth";
+  src: url("../fonts/Trade-Gothic-Bold-Font.otf") format('opentype');
+}
+
+@font-face {
+  font-family: "JMHTypewriter";
+  src: url("../fonts/JMH-Typewriter-mono-Black.ttf") format('truetype');
+}
+
+$font_secondary: "TradeGoth", 'Helvetica', 'Arial', sans-serif;
+$font_primary: "UnitedSansRegMed", 'Andale Mono', 'Monotype', 'Courier New';
+$font_tertiary: "JMHTypewriter", 'Andale Mono', 'Monotype', 'Courier New';
 
 
 * {
@@ -16,7 +38,7 @@ $font_primary: 'Helvetica', 'Arial', sans-serif;
     box-sizing: border-box;
 }
 h1{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 600;
   font-size: rem(64);
   line-height: rem(74);
@@ -28,7 +50,7 @@ h1{
   }
 }
 h2{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 600;
   font-size: rem(54);
   line-height: rem(64);
@@ -41,7 +63,7 @@ h2{
   }
 }
 h3{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 600;
   font-size: rem(50);
   line-height: rem(60);
@@ -52,7 +74,7 @@ h3{
   }
 }
 h4{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 600;
   font-size: rem(36);
   line-height: rem(48);
@@ -63,7 +85,7 @@ h4{
   }
 }
 h5{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 400;
   font-size: rem(26);
   line-height: rem(34);
@@ -74,7 +96,7 @@ h5{
   }
 }
 h6{
-  font-family: $font_primary;
+  font-family: $font_secondary;
   font-weight: 400;
   font-size: rem(24);
   line-height: rem(32);
@@ -94,4 +116,12 @@ p {
         font-size: rem(14);
         line-height: rem(22);
     }
+}
+
+span {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: inherit;
 }

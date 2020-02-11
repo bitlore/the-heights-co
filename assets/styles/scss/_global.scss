@@ -494,12 +494,30 @@ a.image-link {
 	padding-bottom: 60px;
 }
 
+.section-top-padding {
+	padding-top: 60px;
+}
+
 .row-padding {
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
 
+.row-top-padding {
+	padding-top: 40px;
+}
+
 .grid-x {
 	max-width: $row-max-width;
 	margin: 0 auto;
+}
+
+.no-max {
+	max-width: none !important;
+}
+
+.bg-image {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }

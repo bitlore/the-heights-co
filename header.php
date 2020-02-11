@@ -42,7 +42,7 @@
 
 				<header class="header" role="banner">
                     <div class="header-top grid-x grid-padding-x section-padding">
-                		<div class="cell small-12 align-center justify-center display-flex">
+                		<div class="cell small-12 align-center justify-center display-flex section-top-padding head-wrap">
                             <p class="header-text"><?php echo get_field('header_left_text', 'option'); ?></p>
                             <a class="image-link logo-link" href="<?php echo home_url(); ?>">
                                 <img class="custom-logo" src="<?php echo get_field('header_logo', 'option')['url']; ?>" alt="The Heights Co. Logo">

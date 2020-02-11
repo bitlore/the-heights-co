@@ -5,18 +5,11 @@ Template Name: Homepage
 
 get_header(); ?>
 
-	<div class="content">
+	<div class="content-wrap">
 
-		<div class="inner-content grid-x grid-padding-x">
+		<section class="main-image bg-image grid-x no-max grid-padding-x" style="background-image: url(<?php echo $main_img; ?>);">
+		</section>
 
-		    <main class="main small-12 medium-12 large-12 cell" role="main">
-
-					Homepage Stuff!
-
-			</main> <!-- end #main -->
-
-		</div> <!-- end #inner-content -->
-
-	</div> <!-- end #content -->
+	</div> <!-- end content-wrap -->
 
 <?php get_footer(); ?>

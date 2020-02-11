@@ -5,24 +5,47 @@ Stylesheet: Navigation
 *************************************************/
 
 header.header {
+	.head-wrap {
+		padding-bottom: 10px;
+	}
 	a.logo-link {
-		display: inline-flex;
+		display: block;
+		padding-left: 175px;
+		padding-right: 175px;
+		text-align: center;
 	}
 	img.custom-logo {
-		width: 500px;
+		width: 350px;
+		max-width: 100%;
 	}
 	p.header-text {
 		text-align: center;
 		text-transform: uppercase;
-		font-weight: bold;
-		font-family: $font_secondary;
+		font-family: $font_tertiary;
+		font-size: 14px;
+		line-height:1.2em;
 		position:relative;
 		top: 150px;
+		.kern {
+			letter-spacing: 2px;
+		}
 	}
 }
 
 nav.navigation {
 	background: $black;
+	position: relative;
+	&:before {
+		content: url(../images/menu-tab.svg);
+		display: block;
+		position: absolute;
+		top: -34px;
+		left: 50%;
+		transform: translateX(-50%) scale(.8);
+		-webkit-transform: translateX(-50%) scale(.8);
+		-ms-transform: translateX(-50%) scale(.8);
+		-o-transform: translateX(-50%) scale(.8);
+	}
 	ul {
 		list-style-type: none;
 		margin-left: 0px;
@@ -41,11 +64,16 @@ nav.navigation {
 	}
 	li a {
 		color: $white;
+		font-family: $font_secondary;
+		letter-spacing: 2px;
+		font-size: 21px;
 		text-transform: uppercase;
-		font-weight: 700;
 		text-decoration: none;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		padding-top: 25px;
+		padding-bottom: 25px;
 		display: block;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
