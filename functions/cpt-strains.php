@@ -33,12 +33,12 @@ function cpt_strains() {
 			'menu_position' => 2, /* this is what order you want it to appear in on the left hand side menu */
 			'menu_icon' => 'dashicons-buddicons-forums', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
 			'rewrite'	=> array( 'slug' => 'strains', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'strains', /* you can rename the slug here */
+			'has_archive' => false, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
 			// 'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'sticky')
+			'supports' => array( 'title', 'author', 'custom-fields', 'revisions', 'sticky')
 	 	) /* end of options */
 	); /* end of register post type */
 

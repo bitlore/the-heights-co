@@ -453,6 +453,10 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     left: -9000px;
 }
 
+div.content, html, body {
+    background: $black;
+}
+
 a.image-link {
 	display: block;
 }
@@ -514,16 +518,16 @@ a.image-link {
 }
 
 .row-padding {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .row-top-padding {
-	padding-top: 40px;
+	padding-top: 30px;
 }
 
 .row-bottom-padding {
-	padding-bottom: 40px;
+	padding-bottom: 30px;
 }
 
 .grid-x {

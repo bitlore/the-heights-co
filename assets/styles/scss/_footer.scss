@@ -26,7 +26,6 @@ footer.footer {
         z-index: 1;
     }
     h6, p, a {
-        color: $white;
         margin: 0;
     }
     h6 {
@@ -49,6 +48,7 @@ footer.footer {
     .footer-link {
         display: block;
         text-decoration: none;
+        color: $white;
         font-family: $font_secondary;
         white-space: nowrap;
         &:hover {
@@ -57,8 +57,8 @@ footer.footer {
         }
     }
     .footer-icon {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         margin: 10px 10px 10px 10px;
         display: inline-block;
         @include media-max($medium) {

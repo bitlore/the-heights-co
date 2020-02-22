@@ -12,16 +12,13 @@ Stylesheet: Home
         background: $black;
     }
     .home-content {
-        max-width: 1220px;
-        h2 {
+        max-width: 1050px;
+        h3 {
             letter-spacing: 5px;
         }
-        h2, p, span, a, * {
-            color: $white;
-        }
         p {
-            font-size: rem(26);
-            line-height: rem(50);
+            font-size: rem(22);
+            line-height: rem(42);
             margin-top: 0px;
             @include media-max($medium) {
                 font-size: rem(20);

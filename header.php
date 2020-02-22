@@ -24,7 +24,7 @@
 		<!-- If Site Icon isn't set in customizer -->
 		<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 			<!-- Icons & Favicons -->
-			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.svg">
 			<link href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-icon-touch.png" rel="apple-touch-icon" />
 	    <?php } ?>
 
@@ -42,7 +42,7 @@
 
 				<header class="header" role="banner">
                     <div class="header-top grid-x grid-padding-x section-padding">
-                		<div class="cell small-12 align-center justify-center display-flex section-top-padding head-wrap">
+                		<div class="cell small-12 align-center justify-center display-flex head-wrap">
                             <p class="header-text"><?php echo get_field('header_left_text', 'option'); ?></p>
                             <a class="image-link logo-link" href="<?php echo home_url(); ?>">
                                 <img class="custom-logo" src="<?php echo get_field('header_logo', 'option')['url']; ?>" alt="The Heights Co. Logo">

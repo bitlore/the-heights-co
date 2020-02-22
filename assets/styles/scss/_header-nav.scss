@@ -27,26 +27,32 @@ header.header {
 	}
 	.head-wrap {
 		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 	a.logo-link {
 		display: block;
-		padding-left: 175px;
-		padding-right: 175px;
+		// padding-left: 175px;
+		// padding-right: 175px;
+		padding-left: 140px;
+		padding-right: 140px;
 		text-align: center;
 	}
 	img.custom-logo {
-		width: 350px;
+		// width: 350px;
+		width: 300px;
 		max-width: 100%;
+		min-width: 250px;
 	}
 	p.header-text {
 		text-align: center;
 		color: $white;
 		text-transform: uppercase;
 		font-family: $font_tertiary;
-		font-size: rem(14);
+		font-size: rem(12);
 		line-height:1.2em;
 		position:relative;
-		top: 150px;
+		// top: 150px;
+		top: 125px;
 		.kern {
 			letter-spacing: 2px;
 		}
@@ -75,24 +81,24 @@ nav.navigation {
 		margin-top: 0px;
 		margin-right: 0px;
 		padding-left: 0px;
-		justify-content: center;
+		justify-content: space-around;
 		@include media-max($large) {
 			justify-content: space-between;
 		}
 	}
 	li {
-		width: 15%;
 		text-align: center;
 	}
 	li a {
+		display: inline-block;
 		color: $white;
 		font-family: $font_secondary;
 		letter-spacing: 2px;
-		font-size: rem(21);
+		font-size: rem(19);
 		text-transform: uppercase;
 		text-decoration: none;
-		padding-top: 25px;
-		padding-bottom: 25px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		display: block;
 		&:hover {
 			cursor: pointer;
