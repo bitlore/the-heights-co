@@ -1,0 +1,114 @@
+/************************************************
+
+Stylesheet: Single Strains
+
+*************************************************/
+
+section.single-strain {
+    .strain-icon {
+        height: 125px;
+        margin: 0 auto;
+    }
+    h3 {
+        color: $grey-light;
+        font-size: rem(45);
+        line-height: rem(52);
+        letter-spacing: 4px;
+        margin-bottom: 12px;
+    }
+    p.teaser {
+        max-width: 1000px;
+        margin: 0 auto 0px auto;
+    }
+    ul.details {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+            text-align: left;
+            text-transform: uppercase;
+            font-family: $font_secondary;
+            font-size: rem(17);
+            letter-spacing: 2px;
+            padding: 0px 25px 20px 25px;
+            color: $grey-light;
+        }
+        .label {
+            margin: 0px auto 5px 37px;
+            font-family: $font_secondary;
+            font-style: italic;
+            color: $grey-med;
+            font-size: rem(15);
+            letter-spacing: 2px;
+        }
+        .detail-icon {
+            display: inline-block;
+            height: 25px;
+            margin-right: 12px;
+        }
+        span { display: inline-block; }
+        &.top-level {
+            li {
+                padding: 25px 25px 25px 25px;
+            }
+        }
+    }
+    .more-info {
+        .accordion-title {
+            font-family: $font_secondary;
+            color: $grey-light;
+            font-size: rem(22);
+            letter-spacing: 2px;
+            text-decoration: none;
+            margin: 15px auto 60px;
+            display: block;
+        }
+        .strain-image {
+            min-height: 350px;
+        }
+        .action-items {
+            padding: 28px 0px 0px;
+            text-align: left;
+            .harvest, .labs {
+                margin-bottom: 50px;
+                display: block;
+            }
+            .order-link {
+                letter-spacing: 4px;
+                font-size: rem(22);
+                color: $black;
+                background: $grey-light;
+                padding: 8px 12px;
+            }
+            p, h4, a {
+                font-family: $font_secondary;
+                color: $grey-light;
+                letter-spacing: 2px;
+            }
+            p {
+                margin: 0px auto;
+                font-size: rem(17);
+            }
+            h4 {
+                margin: 5px auto;
+            }
+            a {
+                text-decoration: none;
+            }
+            @media screen and (max-width: $medium) {
+                padding: 25px 25px 25px;
+            }
+        }
+        @media screen and (min-width: $medium) {
+            .details.low-level {
+                margin-left: -25px;
+            }
+        }
+    }
+}
+
+ul.accordion {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
