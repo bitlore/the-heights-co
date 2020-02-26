@@ -81,13 +81,12 @@ nav.navigation {
 		margin-top: 0px;
 		margin-right: 0px;
 		padding-left: 0px;
+		// justify-content: space-between;
 		justify-content: space-around;
-		@include media-max($large) {
-			justify-content: space-between;
-		}
 	}
 	li {
 		text-align: center;
+		min-width: 107px;
 	}
 	li a {
 		display: inline-block;

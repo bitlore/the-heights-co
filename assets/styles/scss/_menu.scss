@@ -1,0 +1,60 @@
+/************************************************
+
+Stylesheet: Menu
+
+*************************************************/
+
+.page-template-template-menu {
+    .menu-intro {
+        h3 {
+            color: $black;
+            background: $grey-light;
+            font-size: rem(41);
+            line-height: 1em;
+            letter-spacing: 5px;
+            display: inline-block;
+            padding: 10px 12px;
+            position:relative;
+            span {
+                color: $black;
+                font-size: .6em;
+                letter-spacing: 0px;
+                line-height: 1em;
+                position: relative;
+                top: -6px;
+                &.left {
+                    left: 10px;
+                }
+                &.right {
+                    right: 13px;
+                }
+            }
+            &:before {
+        		content: url(../images/menu-tab-grey.svg);
+        		display: block;
+        		position: absolute;
+        		top: -26px;
+        		left: 50%;
+        		transform: translateX(-50%) scale(.4);
+        		-webkit-transform: translateX(-50%) scale(.4);
+        		-ms-transform: translateX(-50%) scale(.4);
+        		-o-transform: translateX(-50%) scale(.4);
+        	}
+            &:after {
+        		content: url(../images/menu-tab-grey-reversed.svg);
+        		display: block;
+        		position: absolute;
+        		bottom: -28px;
+        		left: 50%;
+        		transform: translateX(-50%) scale(.4);
+        		-webkit-transform: translateX(-50%) scale(.4);
+        		-ms-transform: translateX(-50%) scale(.4);
+        		-o-transform: translateX(-50%) scale(.4);
+        	}
+        }
+        p.teaser {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    }
+}

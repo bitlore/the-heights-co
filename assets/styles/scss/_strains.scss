@@ -6,14 +6,15 @@ Stylesheet: Single Strains
 
 section.single-strain {
     .strain-icon {
-        height: 125px;
+        width: 125px;
+        max-height: 145px;
         margin: 0 auto;
     }
     h3 {
         color: $grey-light;
-        font-size: rem(45);
-        line-height: rem(52);
-        letter-spacing: 4px;
+        font-size: rem(41);
+        line-height: rem(50);
+        letter-spacing: 5px;
         margin-bottom: 12px;
     }
     p.teaser {
@@ -48,12 +49,27 @@ section.single-strain {
         }
         span { display: inline-block; }
         &.top-level {
+            @media screen and (max-width: $small ) {
+                display: none;
+            }
             li {
                 padding: 25px 25px 25px 25px;
             }
         }
+        &.low-level {
+            margin: 0px 0px 0px -25px;
+            @media screen and (max-width: $small) {
+                margin: 0px 0px 0px 0px;
+            }
+        }
     }
     .more-info {
+        .mobile-details {
+            display: none;
+            @media screen and (max-width: $small) {
+                display: block;
+            }
+        }
         .accordion-title {
             font-family: $font_secondary;
             color: $grey-light;
@@ -79,6 +95,7 @@ section.single-strain {
                 color: $black;
                 background: $grey-light;
                 padding: 8px 12px;
+                white-space: nowrap;
             }
             p, h4, a {
                 font-family: $font_secondary;
@@ -95,13 +112,13 @@ section.single-strain {
             a {
                 text-decoration: none;
             }
-            @media screen and (max-width: $medium) {
+            @media screen and (max-width: $large) {
                 padding: 25px 25px 25px;
+                text-align: center;
             }
-        }
-        @media screen and (min-width: $medium) {
-            .details.low-level {
-                margin-left: -25px;
+            @media screen and (max-width: $small) {
+                text-align: left;
+                padding: 0px;
             }
         }
     }
@@ -111,4 +128,11 @@ ul.accordion {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    .accordion-title {
+        &:after {
+    		content: url(../images/arrow-right.svg);
+    		display: inline-block;
+    		// position: absolute;
+        }
+    }
 }
