@@ -24,6 +24,10 @@ header.header {
 	.header-top {
 		position: relative;
 		z-index: 1;
+		@media screen and (max-width: $medium) {
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
 	}
 	.head-wrap {
 		padding-bottom: 10px;
@@ -31,17 +35,29 @@ header.header {
 	}
 	a.logo-link {
 		display: block;
-		// padding-left: 175px;
-		// padding-right: 175px;
 		padding-left: 140px;
 		padding-right: 140px;
 		text-align: center;
+		@media screen and (max-width: $medium) {
+			padding-left: 80px;
+			padding-right: 80px;
+		}
+		@media screen and (max-width: $small) {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 	}
 	img.custom-logo {
-		// width: 350px;
 		width: 300px;
 		max-width: 100%;
-		min-width: 250px;
+		min-width: 150px;
+		@media screen and (max-width: $medium) {
+			width: 250px;
+		}
+		@media screen and (max-width: $small) {
+			width: 50vw;
+			max-width: 250px;
+		}
 	}
 	p.header-text {
 		text-align: center;
@@ -51,10 +67,15 @@ header.header {
 		font-size: rem(12);
 		line-height:1.2em;
 		position:relative;
-		// top: 150px;
 		top: 125px;
 		.kern {
 			letter-spacing: 2px;
+		}
+		@media screen and (max-width: $medium) {
+			top: 105px;
+		}
+		@media screen and (max-width: $small) {
+			display: none;
 		}
 	}
 }
@@ -81,12 +102,17 @@ nav.navigation {
 		margin-top: 0px;
 		margin-right: 0px;
 		padding-left: 0px;
-		// justify-content: space-between;
 		justify-content: space-around;
+		flex-wrap: wrap;
 	}
 	li {
 		text-align: center;
-		min-width: 107px;
+		min-width: 130px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		@media screen and (max-width: $medium) {
+			min-width: 120px;
+		}
 	}
 	li a {
 		display: inline-block;
@@ -96,11 +122,23 @@ nav.navigation {
 		font-size: rem(19);
 		text-transform: uppercase;
 		text-decoration: none;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		display: block;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		padding-left: 10px;
+		padding-right: 10px;
+		border: 2px solid $black;
+		transition: all 200ms ease-in;
 		&:hover {
 			cursor: pointer;
+			border: 2px solid $white;
+			transition: all 200ms ease-in;
+
 		}
+		@media screen and (max-width: $medium) {
+			font-size: rem(17);
+		}
+	}
+	li.current-menu-item a {
+		border: 2px solid $white;
 	}
 }

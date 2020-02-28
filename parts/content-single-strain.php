@@ -1,5 +1,6 @@
 <?php
 
+$price = get_field('price');
 $iconSrc = get_field('strain_icon')['url'];
 $description = get_field('description');
 $class = get_field('class');
@@ -18,8 +19,11 @@ $available = get_field('available');
 ?>
 
 <section class="single-strain section-top-padding text-center">
-    <div class="strain-head grid-x grid-padding-x">
-        <div class="small-12 cell">
+    <div class="grid-x grid-padding-x">
+        <div class="strain-head  small-12 cell">
+            <?php if(!empty($price)) { ?>
+                <h5 class="strain-price"><span>$</span><?php echo $price; ?></h5>
+            <?php } ?>
             <?php if (!empty($iconSrc)) { ?>
                 <img class="strain-icon" src="<?php echo $iconSrc; ?>" alt="<?php echo the_title(); ?> Icon">
             <?php } ?>
@@ -63,6 +67,8 @@ $available = get_field('available');
                 <?php if (!empty($imageSrc)) { ?>
                     <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery"><div data-equalizer-watch class="bg-image strain-image" style="background-image: url('<?php echo $imageSrc ?>');"></div>
                     </a>
+                <?php } else { ?>
+                    <div data-equalizer-watch class=" small-12 medium-5 cell bg-image strain-image" style="background-image: url();"></div>
                 <?php } ?>
                 <ul data-equalizer-watch class="details low-level small-12 medium-7 large-5 cell">
                     <div class="mobile-details">

@@ -5,6 +5,25 @@ Stylesheet: Single Strains
 *************************************************/
 
 section.single-strain {
+    .strain-head {
+        position: relative;
+    }
+    .strain-price {
+        position: absolute;
+        right: 10vw;
+        top: 0;
+        color: $grey-light;
+        font-size: rem(20);
+        line-height: 1em;
+        letter-spacing: 2px;
+        span {
+            color: $grey-light;
+            font-size: .6em;
+            position: relative;
+            top: -5px;
+            right: -2px;
+        }
+    }
     .strain-icon {
         width: 125px;
         max-height: 145px;
@@ -12,8 +31,6 @@ section.single-strain {
     }
     h3 {
         color: $grey-light;
-        font-size: rem(41);
-        line-height: rem(50);
         letter-spacing: 5px;
         margin-bottom: 12px;
     }
@@ -70,15 +87,6 @@ section.single-strain {
                 display: block;
             }
         }
-        .accordion-title {
-            font-family: $font_secondary;
-            color: $grey-light;
-            font-size: rem(22);
-            letter-spacing: 2px;
-            text-decoration: none;
-            margin: 15px auto 60px;
-            display: block;
-        }
         .strain-image {
             min-height: 350px;
         }
@@ -129,10 +137,33 @@ ul.accordion {
     margin: 0;
     padding: 0;
     .accordion-title {
+            font-family: $font_secondary;
+            color: $grey-light;
+            font-size: rem(22);
+            letter-spacing: 2px;
+            text-decoration: none;
+            margin: 15px auto 60px;
+            display: inline-block;
+            position: relative;
         &:after {
     		content: url(../images/arrow-right.svg);
     		display: inline-block;
-    		// position: absolute;
+            position: absolute;
+            transform: scale(.7) rotateZ(0);
+            -webkit-transform: scale(.7) rotateZ(0);
+            -ms-transform: scale(.7) rotateZ(0);
+            -o-transform: scale(.7) rotateZ(0);
+            transition: transform 300ms ease-in;
+
+        }
+    }
+    .accordion-item.is-active {
+        .accordion-title::after {
+            transform: scale(.7) rotateZ(90deg);
+            -webkit-transform: scale(.7) rotateZ(90deg);
+            -ms-transform: scale(.7) rotateZ(90deg);
+            -o-transform: scale(.7) rotateZ(90deg);
+            transition: transform 200ms ease-out;
         }
     }
 }

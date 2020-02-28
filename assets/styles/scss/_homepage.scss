@@ -7,13 +7,19 @@ Stylesheet: Home
 .page-template-template-home {
     .main-image {
         height: 850px;
+        @media screen and(max-width: $medium) {
+            height: 550px;
+        }
+        @media screen and(max-width: $small) {
+            height: 400px;
+        }
     }
     .content-wrap {
         background: $black;
     }
     .home-content {
         max-width: 1050px;
-        h3 {
+        h2 {
             letter-spacing: 5px;
         }
         p {
@@ -24,6 +30,7 @@ Stylesheet: Home
                 font-size: rem(20);
                 line-height: rem(44);
             }
+
         }
     }
 }

@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php if($content) { ?>
 			<section class="section-padding home-content grid-x grid-padding-x">
 				<div class="cell small-12 text-center row-bottom-padding">
-					<h3><?php echo $content_title; ?></h3>
+					<h2><?php echo $content_title; ?></h2>
 					<?php echo $content; ?>
 				</div>
 			</section>

@@ -5,6 +5,13 @@ Template Name: Menu
 
 
 $intro = get_field('intro_copy');
+$showPrices = get_field('show_prices_on_front_end');
+
+if($showPrices == 1) {
+	$priceStatus = '';
+} else {
+	$priceStatus = 'prices-hidden';
+}
 
 get_header(); ?>
 
@@ -39,7 +46,7 @@ get_header(); ?>
 	    $query = new WP_Query( $args );
 
 	    if ( $query->have_posts() ) : ?>
-	    	<div class="strains-wrap section-bottom-padding">
+	    	<div class="strains-wrap <?php echo $priceStatus; ?> section-bottom-padding">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
 					<?php get_template_part( 'parts/content', 'single-strain' ); ?>

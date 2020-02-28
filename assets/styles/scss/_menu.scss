@@ -58,3 +58,9 @@ Stylesheet: Menu
         }
     }
 }
+
+.strains-wrap.prices-hidden {
+    .strain-price {
+        display: none;
+    }
+}
