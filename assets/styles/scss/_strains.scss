@@ -57,6 +57,7 @@ section.single-strain {
             font-style: italic;
             color: $grey-med;
             font-size: rem(15);
+            line-height: 1em;
             letter-spacing: 2px;
         }
         .detail-icon {
@@ -100,6 +101,7 @@ section.single-strain {
             .order-link {
                 letter-spacing: 4px;
                 font-size: rem(22);
+                line-height: 1em;
                 color: $black;
                 background: $grey-light;
                 padding: 8px 12px;
@@ -113,6 +115,7 @@ section.single-strain {
             p {
                 margin: 0px auto;
                 font-size: rem(17);
+                line-height: 1em;
             }
             h4 {
                 margin: 5px auto;

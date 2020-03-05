@@ -23,14 +23,7 @@ Stylesheet: Home
             letter-spacing: 5px;
         }
         p {
-            font-size: rem(22);
-            line-height: rem(42);
             margin-top: 0px;
-            @include media-max($medium) {
-                font-size: rem(20);
-                line-height: rem(44);
-            }
-
         }
     }
 }
