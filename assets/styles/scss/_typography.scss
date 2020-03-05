@@ -123,8 +123,14 @@ p {
     }
     @include media-max($medium) {
         font-size: rem(18);
-        line-height: rem(40);
+        line-height: rem(32);
     }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    max-width: 1050px !important;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 span, a, li, * {
