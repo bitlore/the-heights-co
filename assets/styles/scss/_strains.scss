@@ -23,6 +23,11 @@ section.single-strain {
             top: -5px;
             right: -2px;
         }
+        @media screen and (max-width: $small) {
+            position: relative;
+            right: auto;
+            left:auto;
+        }
     }
     .strain-icon {
         width: 125px;
@@ -90,6 +95,21 @@ section.single-strain {
         }
         .strain-image {
             min-height: 350px;
+            max-height: 400px;
+            &.fallback {
+                min-height: 200px;
+                max-height: 250px;
+            }
+            @media screen and (max-width: $small) {
+                max-height: 300px;
+                min-height: 200px;
+                margin-bottom: 20px;
+            }
+        }
+        .fallback-cell {
+            @media screen and (max-width: $small) {
+                display: none;
+            }
         }
         .action-items {
             padding: 28px 0px 0px;
@@ -97,6 +117,9 @@ section.single-strain {
             .harvest, .labs {
                 margin-bottom: 50px;
                 display: block;
+            }
+            .labs {
+                white-space:nowrap;
             }
             .order-link {
                 letter-spacing: 4px;
@@ -129,7 +152,6 @@ section.single-strain {
             }
             @media screen and (max-width: $small) {
                 text-align: left;
-                padding: 0px;
             }
         }
     }

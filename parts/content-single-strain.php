@@ -16,20 +16,24 @@ $harvest_date = get_field('harvest_date');
 $labs_url = get_field('link_to_lab_results');
 $available = get_field('available');
 
+$showPrices = get_field('show_prices_on_front_end', 'options');
+
 ?>
 
 <section class="single-strain section-top-padding text-center">
     <div class="grid-x grid-padding-x">
         <div class="strain-head  small-12 cell">
-            <?php if(!empty($price)) { ?>
-                <h5 class="strain-price"><span>$</span><?php echo $price; ?></h5>
-            <?php } ?>
             <?php if (!empty($iconSrc)) { ?>
                 <img class="strain-icon" src="<?php echo $iconSrc; ?>" alt="<?php echo the_title(); ?> Icon">
             <?php } ?>
             <h3><?php echo the_title(); ?></h3>
             <?php if (!empty($description)) { ?>
                 <p class="teaser"><?php echo $description; ?></p>
+            <?php } ?>
+            <?php if($showPrices == 1) { ?>
+                <?php if(!empty($price)) { ?>
+                    <h5 class="strain-price"><span>$</span><?php echo $price; ?></h5>
+                <?php } ?>
             <?php } ?>
             <ul class="details top-level display-flex justify-center">
                 <?php if(!empty($class)) { ?>
@@ -65,10 +69,15 @@ $available = get_field('available');
             <a href="#" class="accordion-title">MORE INFO</a>
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
                 <?php if (!empty($imageSrc)) { ?>
-                    <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery"><div data-equalizer-watch class="bg-image strain-image" style="background-image: url('<?php echo $imageSrc ?>');"></div>
+                    <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
+                        <!-- <div data-equalizer-watch class="bg-image strain-image" style="background-image: url('<?php echo $imageSrc ?>');"></div> -->
+                        <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
                     </a>
                 <?php } else { ?>
-                    <div data-equalizer-watch class=" small-12 medium-5 cell bg-image strain-image" style="background-image: url();"></div>
+                    <!-- <div data-equalizer-watch class=" small-12 medium-5 cell bg-image strain-image" style="background-image: url('<?php echo get_field('strain_fallback_image', 'options')['url']; ?>');"></div> -->
+                    <div data-equalizer-watch class=" small-12 medium-5 cell fallback-cell display-flex justify-center">
+                        <img class="strain-image fallback" src="<?php echo get_field('strain_fallback_image', 'options')['url']; ?>" alt="Strain Image">
+                    </div>
                 <?php } ?>
                 <ul data-equalizer-watch class="details low-level small-12 medium-7 large-5 cell">
                     <div class="mobile-details">
