@@ -2,6 +2,8 @@
 
 $price = get_field('price');
 $iconSrc = get_field('strain_icon')['url'];
+$titleString = get_the_title();
+$titleID = strtolower($titleString);
 $description = get_field('description');
 $class = get_field('class');
 $lineage = get_field('lineage');
@@ -20,7 +22,7 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
 
 ?>
 
-<section class="single-strain section-top-padding text-center">
+<section id="<?php echo $titleID; ?>" class="single-strain section-top-padding text-center">
     <div class="grid-x grid-padding-x">
         <div class="strain-head  small-12 cell">
             <?php if (!empty($iconSrc)) { ?>

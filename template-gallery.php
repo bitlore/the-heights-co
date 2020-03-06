@@ -16,10 +16,12 @@ get_header(); ?>
 				$link = get_sub_field('link');
 
 				if($add_link == true) { ?>
+
 					<div class="cell small-12 medium-6 large-4 with-link">
 						<div class="gallery-image bg-image" style="background-image: url('<?php echo $image['url']; ?>')">
-								<a class="gallery-link display-flex align-center justify-center" href="<?php echo $link['url'];?>">
-								<p class="link-text"><?php echo $link['title']; ?></p>
+								<a class="gallery-link display-flex direction-column align-center justify-center" href="<?php echo $link['url'];?>" target="<?php echo $link['target']; ?>">
+									<p class="link-text"><?php echo $link['title']; ?></p>
+									<img class="link-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-link.png" alt="Link Icon">
 							</a>
 						</div>
 					</div>
