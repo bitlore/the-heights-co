@@ -101,6 +101,7 @@ nav.navigation {
 	}
 	ul {
 		list-style-type: none;
+		background: $black;
 		margin-left: 0px;
 		margin-bottom: 0px;
 		margin-top: 0px;
@@ -108,6 +109,20 @@ nav.navigation {
 		padding-left: 0px;
 		justify-content: space-around;
 		flex-wrap: wrap;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		@include media-max($medium) {
+			display: block;
+			max-height: 0px;
+			overflow: hidden;
+			transition: all 300ms ease-in;
+			&.open {
+				max-height: 800px;
+			}
+		}
 	}
 	li {
 		text-align: center;
@@ -116,6 +131,9 @@ nav.navigation {
 		padding-bottom: 15px;
 		@media screen and (max-width: $medium) {
 			min-width: 122px;
+		}
+		@media screen and (max-width: $small) {
+			min-width: 0px;
 		}
 	}
 	li a {
@@ -146,3 +164,44 @@ nav.navigation {
 		border: 2px solid $white;
 	}
 }
+
+.mobile-menu-button {
+	display: none;
+	text-align: center;
+	.hamburger-wrap {
+		display: inline-block;
+		margin: 0 auto;
+		padding-top: 10px;
+		padding-bottom: 5px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.hamburger {
+		height: 3px;
+		background: $white;
+		border: 1px solid $white;
+		border-radius: 1px;
+		margin: 4px;
+		width: 30px;
+	}
+	@include media-max($medium) {
+		display: block;
+	}
+}
+
+nav#navbar.sticky {
+	position: fixed !important;
+	top: 0px;
+	width: 100%;
+	transition: all 200ms ease;
+}
+
+// body.logged-in {
+// 	nav#navbar.sticky {
+// 		position: fixed !important;
+// 	    top: 46px;
+// 	    width: 100%;
+// 		transition: all 200ms ease;
+// 	}
+// }

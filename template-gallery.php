@@ -18,7 +18,7 @@ get_header(); ?>
 				if($add_link == true) { ?>
 
 					<div class="cell small-12 medium-6 large-4 with-link">
-						<div class="gallery-image bg-image" style="background-image: url('<?php echo $image['url']; ?>')">
+						<div class="gallery-image" style="background-image: url('<?php echo $image['url']; ?>')">
 								<a class="gallery-link display-flex direction-column align-center justify-center" href="<?php echo $link['url'];?>" target="<?php echo $link['target']; ?>">
 									<p class="link-text"><?php echo $link['title']; ?></p>
 									<img class="link-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-link.png" alt="Link Icon">
@@ -29,7 +29,7 @@ get_header(); ?>
 				<?php } else { ?>
 
 					<div class="cell small-12 medium-6 large-4">
-						<div class="gallery-image bg-image" style="background-image: url('<?php echo $image['url']; ?>')"></div>
+						<div class="gallery-image" style="background-image: url('<?php echo $image['url']; ?>')"></div>
 					</div>
 
 				<?php } ?>

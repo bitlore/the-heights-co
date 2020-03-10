@@ -126,6 +126,10 @@ p {
     @include media-max($medium) {
         font-size: rem(18);
         line-height: rem(32);
+        &.teaser {
+            font-size: rem(18);
+            line-height: rem(32);
+        }
     }
 }
 
