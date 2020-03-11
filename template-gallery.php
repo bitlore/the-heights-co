@@ -12,10 +12,12 @@ get_header(); ?>
 		<section class="section-padding gallery no-max grid-x">
 			<?php while(have_rows('images')) : the_row();
 				$image = get_sub_field('image');
-				$add_link = get_sub_field('add_link');
-				$link = get_sub_field('link');
+				$add_caption = get_sub_field('add_caption');
 
-				if($add_link == true) { ?>
+
+				if($add_caption == 'caption_with_link') {
+
+					$link = get_sub_field('link'); ?>
 
 					<div class="cell small-12 medium-6 large-4 with-link">
 						<div class="gallery-image" style="background-image: url('<?php echo $image['url']; ?>')">
@@ -25,6 +27,18 @@ get_header(); ?>
 							</a>
 						</div>
 					</div>
+
+				<?php } else if($add_caption == 'caption_only') {
+
+						$caption = get_sub_field('caption'); ?>
+
+						<div class="cell small-12 medium-6 large-4 with-link">
+							<div class="gallery-image" style="background-image: url('<?php echo $image['url']; ?>')">
+									<span class="gallery-link display-flex direction-column align-center justify-center">
+										<p class="link-text"><?php echo $caption ?></p>
+								</span>
+							</div>
+						</div>
 
 				<?php } else { ?>
 

@@ -35,6 +35,7 @@ section.wp-blocks {
         margin-left: auto;
         margin-right: auto;
         @extend .display-flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         @media screen and (max-width: 599px) {

@@ -33,6 +33,9 @@ section.single-strain {
         width: 125px;
         max-height: 145px;
         margin: 0 auto;
+        @media screen and (max-width: $small) {
+            width: 90px;
+        }
     }
     h3 {
         color: $grey-light;
@@ -55,6 +58,9 @@ section.single-strain {
             letter-spacing: 2px;
             padding: 0px 25px 20px 25px;
             color: $grey-light;
+            @media screen and (max-width: $small) {
+                font-size: rem(15);
+            }
         }
         .label {
             margin: 0px auto 5px 37px;
@@ -64,11 +70,17 @@ section.single-strain {
             font-size: rem(15);
             line-height: 1em;
             letter-spacing: 2px;
+            @media screen and (max-width: $small) {
+                font-size: rem(13);
+            }
         }
         .detail-icon {
             display: inline-block;
             height: 25px;
             margin-right: 12px;
+            @media screen and (max-width: $small) {
+                height: 20px;
+            }
         }
         span { display: inline-block; }
         &.top-level {
@@ -97,8 +109,8 @@ section.single-strain {
             min-height: 350px;
             max-height: 400px;
             &.fallback {
-                min-height: 200px;
-                max-height: 250px;
+                // min-height: 200px;
+                // max-height: 250px;
             }
             @media screen and (max-width: $small) {
                 max-height: 300px;
@@ -118,19 +130,13 @@ section.single-strain {
                 margin-bottom: 50px;
                 display: block;
             }
-            .labs {
+            a.labs {
                 white-space:nowrap;
+                font-family: $font_secondary;
+                color: $grey-light;
+                letter-spacing: 2px;
             }
-            .order-link {
-                letter-spacing: 4px;
-                font-size: rem(22);
-                line-height: 1em;
-                color: $black;
-                background: $grey-light;
-                padding: 8px 12px;
-                white-space: nowrap;
-            }
-            p, h4, a {
+            p, h4  {
                 font-family: $font_secondary;
                 color: $grey-light;
                 letter-spacing: 2px;
@@ -152,7 +158,18 @@ section.single-strain {
             }
             @media screen and (max-width: $small) {
                 text-align: left;
+                margin-bottom: 50px;
             }
+        }
+    }
+    @media screen and (max-width: $small) {
+        &:not(:last-child):after {
+            content: '';
+            height: 1px;
+            background: $white;
+            width: 60vw;
+            margin: 10px auto 35px auto;
+            display: block;
         }
     }
 }

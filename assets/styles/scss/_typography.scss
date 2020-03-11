@@ -147,6 +147,32 @@ span, a, li, * {
     color: $white;
 }
 
+a {
+    text-decoration: none;
+    color: $purple-light;
+    &:hover {
+        transition: all 200ms ease;
+        color: lighten($purple-light, 10%);
+    }
+}
+
 h1 + p, h2 + p, h3 + p, h4 + p {
     margin-top: 0px;
+}
+
+button, a.button, .button  {
+    letter-spacing: 3px;
+    font-size: rem(22);
+    line-height: 1em;
+    color: $black;
+    background: $grey-light;
+    padding: 8px 12px;
+    white-space: nowrap;
+    font-family: $font_secondary;
+    transition: all 200ms ease;
+    display: inline-block;
+    &:hover {
+        cursor: pointer;
+        background: lighten($grey-light, 10%);
+    }
 }

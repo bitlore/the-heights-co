@@ -72,13 +72,11 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
                 <?php if (!empty($imageSrc)) { ?>
                     <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
-                        <!-- <div data-equalizer-watch class="bg-image strain-image" style="background-image: url('<?php echo $imageSrc ?>');"></div> -->
                         <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
                     </a>
                 <?php } else { ?>
-                    <!-- <div data-equalizer-watch class=" small-12 medium-5 cell bg-image strain-image" style="background-image: url('<?php echo get_field('strain_fallback_image', 'options')['url']; ?>');"></div> -->
                     <div data-equalizer-watch class=" small-12 medium-5 cell fallback-cell display-flex justify-center">
-                        <img class="strain-image fallback" src="<?php echo get_field('strain_fallback_image', 'options')['url']; ?>" alt="Strain Image">
+                        <img style="opacity: <?php echo get_field('fallback_opacity', 'options'); ?>%;" class="strain-image fallback" src="<?php echo get_field('strain_fallback_image', 'options')['url']; ?>" alt="Strain Image">
                     </div>
                 <?php } ?>
                 <ul data-equalizer-watch class="details low-level small-12 medium-7 large-5 cell">
@@ -151,7 +149,7 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
                   <?php if(!empty($labs_url)) { ?>
                       <a class="labs" href="<?php echo $labs_url; ?>" target="blank">LAB RESULTS ></a>
                   <?php } ?>
-                  <a class="order-link" href="<?php echo get_site_url(); ?>/order">ORDER ></a>
+                  <a class="button order-link" href="<?php echo get_site_url(); ?>/order">ORDER ></a>
               </div>
             </div>
           </li>
