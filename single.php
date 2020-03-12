@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="content">
+<div class="content-wrap">
 
 	<div class="inner-content grid-x grid-margin-x grid-padding-x section-padding">
 

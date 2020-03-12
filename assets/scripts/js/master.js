@@ -3,14 +3,35 @@ Custom Functionality for The Heights Theme
 */
 
 
+/////////////////////////////////////
+// Mobile Menu Button Click Event //
+////////////////////////////////////
 
-window.onscroll = function() { myFunction() };
+var mobileMenuBtn = document.getElementById('mobile-menu-button');
+var mainNav = document.getElementById('main-nav');
+
+mobileMenuBtn.addEventListener('click', function() {
+    mobileMenuBtn.classList.toggle('open');
+    mainNav.classList.toggle('open');
+})
+
+
+////////////////////////////////////
+// Sticky Nav Bar //
+////////////////////////////////////
+
 
 var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
 
-=
-function myFunction() {
+
+if(document.body.classList.contains('logged-in') && window.innerWidth < 600 ) {
+    var sticky = navbar.offsetTop + 46;
+} else {
+    var sticky = navbar.offsetTop;
+}
+
+
+function stickNav() {
   if (window.pageYOffset >= sticky && window.innerWidth < 768 ) {
     navbar.classList.add("sticky");
   } else {
@@ -19,6 +40,26 @@ function myFunction() {
 }
 
 
-jQuery('#mobile-menu-button').on('click', function() {
-    jQuery('#main-nav').toggleClass('open');
-});
+
+////////////////////////////////////
+// Window Events //
+////////////////////////////////////
+
+window.onscroll = function() {
+	if(timer) { window.clearTimeout(timer); }
+
+	var timer = window.setTimeout(function() {
+		stickNav();
+	}, 100);
+};
+
+window.onresize = function() {
+	if(timer) { window.clearTimeout(timer); }
+
+	var timer = window.setTimeout(function() {
+		stickNav();
+	}, 100);
+};
+
+
+window.onload = function() { stickNav() };
