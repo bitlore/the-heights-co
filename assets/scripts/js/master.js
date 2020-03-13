@@ -25,9 +25,9 @@ var navbar = document.getElementById("navbar");
 
 
 if(document.body.classList.contains('logged-in') && window.innerWidth < 600 ) {
-    var sticky = navbar.offsetTop + 46;
+    var sticky = navbar.offsetTop + 92;
 } else {
-    var sticky = navbar.offsetTop;
+    var sticky = navbar.offsetTop + 46;
 }
 
 

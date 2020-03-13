@@ -28,9 +28,14 @@ header.header {
 	.header-top {
 		position: relative;
 		z-index: 1;
-		@media screen and (max-width: $medium) {
+		height: auto;
+		@include media-max($medium)  {
 			padding-top: 40px;
 			padding-bottom: 40px;
+			// height: $medHeaderHeight;
+		}
+		@include media-max($small)  {
+			// height: $smallHeaderHeight;
 		}
 	}
 	.head-wrap {
@@ -42,11 +47,11 @@ header.header {
 		padding-left: 140px;
 		padding-right: 140px;
 		text-align: center;
-		@media screen and (max-width: $medium) {
+		@include media-max($medium) {
 			padding-left: 80px;
 			padding-right: 80px;
 		}
-		@media screen and (max-width: $small) {
+		@include media-max($small) {
 			padding-left: 0px;
 			padding-right: 0px;
 		}
@@ -59,8 +64,7 @@ header.header {
 			width: 250px;
 		}
 		@media screen and (max-width: $small) {
-			width: 50vw;
-			max-width: 250px;
+			width: 200px;
 		}
 	}
 	p.header-text {
@@ -87,7 +91,7 @@ header.header {
 nav.navigation {
 	background: $black;
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 	&:before {
 		content: url(../images/menu-tab.svg);
 		display: block;
@@ -159,18 +163,71 @@ nav.navigation {
 	}
 	@include media-max($medium) {
 		position: absolute;
+		top: initial;
 		width: 100%;
 		ul {
 			display: block;
 			max-height: 0px;
 			overflow: hidden;
-			transition: all 300ms ease-in;
+			transition: all 300ms ease-out;
+			li:first-child() {
+				padding-top: 50px;
+			}
+			li:last-child() {
+				padding-bottom: 60px;
+			}
 			&.open {
-				max-height: 800px;
+				transition: all 300ms ease-in;
+				max-height: 900px;
 			}
 		}
 	}
 }
+
+#navbar.sticky{
+	top: -46px; // waiting to slide it down vian animation to avoid browser jumping
+	position: fixed !important;
+	width: 100%;
+	z-index:2;
+	animation: slideDown 200ms ease forwards;
+	-webkit-animation: slideDown 200ms ease forwards;
+}
+
+@-webkit-keyframes slideDown {
+    0% { top: -46px; }
+  100% { top: 0px; }
+}
+
+@keyframes slideDown {
+	0% { top: -46px; }
+  100% { top: 0px; }
+}
+
+@-webkit-keyframes slideDownMore {
+    0% { top: 0px; }
+  100% { top: 45px; }
+}
+
+@keyframes slideDownMore {
+	0% { top: 0px; }
+  100% { top: 45px; }
+}
+
+body.logged-in {
+	#navbar.sticky {
+		@include media-max($medium) {
+			top: 0px;
+			animation: slideDownMore 200ms ease forwards;
+			-webkit-animation: slideDownMore 200ms ease forwards;
+		}
+		@media screen and (max-width: 600px) {
+			top: -46px;
+			animation: slideDown 200ms ease forwards;
+			-webkit-animation: slideDown 200ms ease forwards;
+		}
+	}
+}
+
 
 .mobile-menu-button {
 	display: none;
@@ -220,24 +277,6 @@ nav.navigation {
 	}
 }
 
-nav#navbar.sticky {
-	position: fixed !important;
-	top: 0px;
-	width: 100%;
-	transition: all 200ms ease;
-}
-
-body.logged-in {
-	nav#navbar.sticky {
-		transition: all 200ms ease;
-		@include media-max($medium) {
-			top: 46px;
-		}
-		@media screen and (max-width: 600px) {
-			top: 0;
-		}
-	}
-}
 
 
 @include media-max($medium) {

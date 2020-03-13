@@ -16,7 +16,7 @@
                                 <?php while(have_rows('footer_links', 'option')) { the_row(); ?>
                                     <li>
                                         <a class="footer-link" href="<?php echo get_sub_field('link')['url']; ?>" target="<?php echo get_sub_field('link')['target']; ?>">
-                                            <img class="footer-icon" src="<?php echo get_sub_field('icon')['url']; ?>" alt=""><?php echo get_sub_field('link')['title']; ?>
+                                            <img class="footer-icon" src="<?php echo get_sub_field('icon')['url']; ?>" alt=""><span><?php echo get_sub_field('link')['title']; ?></span>
                                         </a>
                                     </li>
                                 <?php } ?>

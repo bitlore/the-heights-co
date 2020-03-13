@@ -152,7 +152,7 @@ a {
     color: $purple-light;
     &:hover {
         transition: all 200ms ease;
-        color: lighten($purple-light, 10%);
+        color: lighten($purple-light, 5%);
     }
 }
 
