@@ -77,9 +77,11 @@ section.single-strain {
         .detail-icon {
             display: inline-block;
             height: 25px;
+            max-width: 25px;
             margin-right: 12px;
             @media screen and (max-width: $small) {
                 height: 20px;
+                max-width: 20px;
             }
         }
         span { display: inline-block; }
@@ -135,6 +137,10 @@ section.single-strain {
                 font-family: $font_secondary;
                 color: $grey-light;
                 letter-spacing: 2px;
+                transition: all 200ms ease;
+                &:hover {
+                    color: $purple-light;
+                }
             }
             p, h4  {
                 font-family: $font_secondary;
@@ -188,20 +194,35 @@ ul.accordion {
             display: inline-block;
             position: relative;
             cursor: pointer;
-        &:after {
-    		content: url(../images/arrow-right.svg);
+            -webkit-backface-visibility: hidden;
+             backface-visibility: hidden;
+             transition: all 200ms ease;
+        svg {
     		display: inline-block;
+            top: 7px;
             position: absolute;
             transform: scale(.7) rotateZ(0);
             -webkit-transform: scale(.7) rotateZ(0);
             -ms-transform: scale(.7) rotateZ(0);
             -o-transform: scale(.7) rotateZ(0);
             transition: transform 300ms ease-in;
-
+            -webkit-backface-visibility: hidden;
+             backface-visibility: hidden;
+             #arrow {
+                transition: all 200ms ease;
+             }
+        }
+        &:hover {
+            color: $purple-light;
+            transition: all 200ms ease;
+            svg #arrow {
+                stroke: $purple-light;
+                transition: all 200ms ease;
+            }
         }
     }
     .accordion-item.is-active {
-        .accordion-title::after {
+        svg {
             transform: scale(.7) rotateZ(90deg);
             -webkit-transform: scale(.7) rotateZ(90deg);
             -ms-transform: scale(.7) rotateZ(90deg);

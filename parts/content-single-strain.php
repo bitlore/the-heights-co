@@ -68,15 +68,28 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
     <div class="more-info grid-x grid-padding-x">
         <ul class="accordion small-12 cell" data-accordion data-allow-all-closed="true">
           <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title">MORE INFO</a>
+            <a href="#" class="accordion-title">MORE INFO
+                <svg width="28px" height="18px" viewBox="0 0 28 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>Right Arrow</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="arrow" transform="translate(1.000000, 2.000000)" stroke="#CFD2D3" stroke-width="3">
+                            <path d="M0.5,6.98662024 L12.3483915,6.98662024" id="Line" stroke-linecap="square"></path>
+                            <polygon id="Triangle" transform="translate(17.714773, 7.033327) rotate(90.000000) translate(-17.714773, -7.033327) " points="17.7147735 1.66694453 23.7610308 12.3997085 11.6685162 12.3997085"></polygon>
+                        </g>
+                    </g>
+                </svg>
+            </a>
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
                 <?php if (!empty($imageSrc)) { ?>
                     <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
                         <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
                     </a>
-                <?php } else { ?>
+                <?php } else {
+                    $opacity = get_field('fallback_opacity', 'options');
+                    $opacityDecimal = $opacity / 100;
+                    ?>
                     <div data-equalizer-watch class=" small-12 medium-5 cell fallback-cell display-flex justify-center">
-                        <img style="opacity: <?php echo get_field('fallback_opacity', 'options'); ?>%;" class="strain-image fallback" src="<?php echo get_field('strain_fallback_image', 'options')['url']; ?>" alt="Strain Image">
+                        <img style="opacity: <?php echo $opacityDecimal ?>;" class="strain-image fallback" src="<?php echo get_field('strain_fallback_image', 'options')['url']; ?>" alt="Strain Image">
                     </div>
                 <?php } ?>
                 <ul data-equalizer-watch class="details low-level small-12 medium-7 large-5 cell">

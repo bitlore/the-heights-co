@@ -9,7 +9,7 @@ get_header(); ?>
 
 	<div class="content-wrap">
 		<?php if(have_rows('images')) : ?>
-		<section class="section-padding gallery no-max grid-x">
+		<section class="section-padding gallery-page no-max grid-x">
 			<?php while(have_rows('images')) : the_row();
 				$image = get_sub_field('image');
 				$add_caption = get_sub_field('add_caption');

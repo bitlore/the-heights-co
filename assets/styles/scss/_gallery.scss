@@ -5,7 +5,7 @@ Stylesheet: Gallery
 *************************************************/
 
 .page-template-template-gallery {
-    section.gallery {
+    section.gallery-page {
         justify-content: center;
         @include media-max($medium) {
             padding-top: 0px;
@@ -14,10 +14,10 @@ Stylesheet: Gallery
         &:before, &:after {
             content: normal;
         }
-    }
-    .cell {
-        padding-left: 5px;
-        padding-right: 5px;
+        .cell {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
     .gallery-image {
         height: 33vw;
