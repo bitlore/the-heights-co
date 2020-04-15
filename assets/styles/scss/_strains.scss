@@ -192,6 +192,17 @@ section.single-strain {
         ul.details.top-level {
             margin: 0px auto 30px auto;
         }
+        .strain-head {
+            h4 {
+                margin-top: 0px;
+            }
+            h5 {
+                color: $grey-light;
+                letter-spacing: 2px;
+                margin: 0px auto;
+            }
+        }
+
     }
 }
 

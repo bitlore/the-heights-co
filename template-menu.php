@@ -71,9 +71,7 @@ get_header(); ?>
 			)
 	    );
 
-	    $availQuery = new WP_Query( $availArgs );
-		$soldOutQuery = new WP_Query($soldOutArgs);
-		$comingSoonQuery = new WP_Query($comingSoonArgs); ?>
+	    $availQuery = new WP_Query( $availArgs ); ?>
 
 		<?php if ( $availQuery->have_posts() ) : ?>
 			<?php while ( $availQuery->have_posts() ) : $availQuery->the_post(); ?>
@@ -84,16 +82,21 @@ get_header(); ?>
 			wp_reset_postdata(); ?>
 		<?php endif; ?>
 
-		<?php if ( $soldOutQuery->have_posts() ) : ?>
-			<?php while ( $soldOutQuery->have_posts() ) : $soldOutQuery->the_post(); ?>
+		<?php $soldOutQuery = new WP_Query($soldOutArgs);
 
-				<?php get_template_part( 'parts/content', 'single-strain' ); ?>
+		if(get_field('show_sold_out_strains', 'option') == true) { ?>
+			<?php if ( $soldOutQuery->have_posts() ) : ?>
+				<?php while ( $soldOutQuery->have_posts() ) : $soldOutQuery->the_post(); ?>
 
-			<?php endwhile;
-			wp_reset_postdata(); ?>
-		<?php endif; ?>
+						<?php get_template_part( 'parts/content', 'single-strain' ); ?>
 
-		<?php if ( $comingSoonQuery->have_posts() ) : ?>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
+			<?php endif;
+		 } ?>
+
+		<?php $comingSoonQuery = new WP_Query($comingSoonArgs);
+		if ( $comingSoonQuery->have_posts() ) : ?>
 			<section class="section-top-padding menu-intro grid-x grid-padding-x">
 				<?php if(!empty($coming_soon_headline)) { ?>
 					<div class="cell small-12 text-center">
