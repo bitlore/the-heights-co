@@ -5,24 +5,31 @@ Template Name: Menu
 
 
 $intro = get_field('intro_copy');
+$intro_headline = get_field('intro_headline');
+$coming_soon_headline = get_field('coming_soon_headline');
 
 get_header(); ?>
 
-	<div class="content-wrap">
+	<div class="content-wrap section-bottom-padding">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<?php if($intro) { ?>
-			<section class="section-top-padding menu-intro grid-x grid-padding-x">
+		<section class="section-top-padding menu-intro grid-x grid-padding-x">
+			<?php if(!empty($intro_headline)) { ?>
 				<div class="cell small-12 text-center">
-					<h3 class="section-title"><span class="left">&#8226;</span> MENU <span class="right">&#8226;</span></h3>
+						<h3 class="section-title"><span class="left">&#8226;</span> <?php echo $intro_headline; ?> <span class="right">&#8226;</span></h3>
 				</div>
-				<div class="cell small-12 text-center row-padding">
-					<p class="teaser"><?php echo $intro; ?></p>
-				</div>
-			</section>
-		<?php  } ?>
+			<?php } ?>
+			<?php if(!empty($intro)) { ?>
+			<div class="cell small-12 text-center row-padding">
+				<p class="teaser"><?php echo $intro; ?></p>
+			</div>
+			<?php } ?>
+		</section>
+
 
 		<?php
-		$args = array(
+
+		$availArgs = array(
 	        'post_type' => 'strains',
 	        'post_status' => 'publish',
 	        'posts_per_page' => -1,
@@ -36,20 +43,74 @@ get_header(); ?>
 			)
 	    );
 
-	    $query = new WP_Query( $args );
+		$soldOutArgs = array(
+	        'post_type' => 'strains',
+	        'post_status' => 'publish',
+	        'posts_per_page' => -1,
+	        'orderby' => 'title',
+	        'order' => 'ASC',
+			'meta_query' => array(
+			    array(
+			        'key' => 'available',
+			        'value' => 'no'
+			    )
+			)
+	    );
 
-	    if ( $query->have_posts() ) : ?>
-	    	<div class="strains-wrap section-bottom-padding">
-				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+		$comingSoonArgs = array(
+	        'post_type' => 'strains',
+	        'post_status' => 'publish',
+	        'posts_per_page' => -1,
+	        'orderby' => 'title',
+	        'order' => 'ASC',
+			'meta_query' => array(
+			    array(
+			        'key' => 'available',
+			        'value' => 'coming_soon'
+			    )
+			)
+	    );
 
-					<?php get_template_part( 'parts/content', 'single-strain' ); ?>
+	    $availQuery = new WP_Query( $availArgs );
+		$soldOutQuery = new WP_Query($soldOutArgs);
+		$comingSoonQuery = new WP_Query($comingSoonArgs); ?>
 
-				<?php endwhile;
+		<?php if ( $availQuery->have_posts() ) : ?>
+			<?php while ( $availQuery->have_posts() ) : $availQuery->the_post(); ?>
 
-				wp_reset_postdata(); ?>
+				<?php get_template_part( 'parts/content', 'single-strain' ); ?>
 
-	    	</div>
+			<?php endwhile;
+			wp_reset_postdata(); ?>
 		<?php endif; ?>
+
+		<?php if ( $soldOutQuery->have_posts() ) : ?>
+			<?php while ( $soldOutQuery->have_posts() ) : $soldOutQuery->the_post(); ?>
+
+				<?php get_template_part( 'parts/content', 'single-strain' ); ?>
+
+			<?php endwhile;
+			wp_reset_postdata(); ?>
+		<?php endif; ?>
+
+		<?php if ( $comingSoonQuery->have_posts() ) : ?>
+			<section class="section-top-padding menu-intro grid-x grid-padding-x">
+				<?php if(!empty($coming_soon_headline)) { ?>
+					<div class="cell small-12 text-center">
+							<h3 class="section-title"><span class="left">&#8226;</span> <?php echo $coming_soon_headline; ?> <span class="right">&#8226;</span></h3>
+					</div>
+				<?php } ?>
+			</section>
+
+			<?php while ( $comingSoonQuery->have_posts() ) : $comingSoonQuery->the_post(); ?>
+
+				<?php get_template_part( 'parts/content', 'single-strain-soon' ); ?>
+
+			<?php endwhile;
+			wp_reset_postdata(); ?>
+		<?php endif; ?>
+
+<?php endwhile; endif; ?>
 
 	</div> <!-- end content-wrap -->
 

@@ -28,6 +28,11 @@ section.single-strain {
             right: auto;
             left:auto;
         }
+        &.sold-out {
+            color: $purple-light;
+            border: 2px solid $purple-light;
+            padding: 5px 10px;
+        }
     }
     .strain-icon {
         width: 125px;
@@ -37,10 +42,11 @@ section.single-strain {
             width: 90px;
         }
     }
-    h3 {
+    h3, h4 {
         color: $grey-light;
         letter-spacing: 5px;
         margin-bottom: 12px;
+        text-transform: uppercase;
     }
     p.teaser {
         max-width: 1000px;
@@ -111,6 +117,7 @@ section.single-strain {
             min-height: 350px;
             max-height: 400px;
             &.fallback {
+                filter: grayscale(100%);
                 // min-height: 200px;
                 // max-height: 250px;
             }
@@ -176,6 +183,14 @@ section.single-strain {
             width: 60vw;
             margin: 10px auto 35px auto;
             display: block;
+        }
+    }
+    &.coming-soon {
+        ul.accordion .accordion-title {
+            margin: 15px auto;
+        }
+        ul.details.top-level {
+            margin: 0px auto 30px auto;
         }
     }
 }
