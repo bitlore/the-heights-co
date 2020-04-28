@@ -1,0 +1,59 @@
+/************************************************
+
+Stylesheet: WP 5 Block Overrides
+
+*************************************************/
+
+section.wp-blocks {
+    > * {
+        max-width: $row-max-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: .9375rem;
+        padding-right: .9375rem;
+        width: 100%;
+    }
+    .wp-block-cover, .wp-block-cover-image {
+        max-width: none;
+    }
+    .wp-block-spacer {
+        width: 100%;
+    }
+    .wp-block-columns {
+        width: auto;
+        margin-bottom: 0px;
+        @media screen and (min-width: 1600px) {
+            width: 100%;
+        }
+    }
+    .wp-block-columns.logo-columns {
+        @media screen and (max-width: 1600px) {
+            max-width: 900px;
+        }
+    }
+    .wp-block-column {
+        margin-left: auto;
+        margin-right: auto;
+        @extend .display-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width: 599px) {
+            margin-bottom: 40px;
+        }
+    }
+    .logo img {
+        // transform: scale(.8);
+        @media screen and (max-width: 599px) {
+            max-height: 150px;
+        }
+    }
+}
+
+.wp-block-cover, .wp-block-cover-image {
+    min-height: 370px;
+    .wp-block-cover__inner-container {
+        max-width: $row-max-width;
+        text-align: center;
+    }
+}

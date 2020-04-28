@@ -21,16 +21,13 @@ Stylesheet: Home
         max-width: 1050px;
         h2 {
             letter-spacing: 5px;
+            @media screen and (max-width: $small) {
+                letter-spacing: 3px;
+                margin-top: 0px;
+            }
         }
         p {
-            font-size: rem(22);
-            line-height: rem(42);
             margin-top: 0px;
-            @include media-max($medium) {
-                font-size: rem(20);
-                line-height: rem(44);
-            }
-
         }
     }
 }

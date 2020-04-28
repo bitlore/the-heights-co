@@ -28,7 +28,9 @@ Stylesheet: Typography
 
 $font_secondary: "TradeGoth", 'Helvetica', 'Arial', sans-serif;
 $font_primary: "UnitedSansRegMed", 'Andale Mono', 'Monotype', 'Courier New';
+$font_primary_bold: "UnitedSansRegHev", 'Andale Mono', 'Monotype', 'Courier New';
 $font_tertiary: "JMHTypewriter", 'Andale Mono', 'Monotype', 'Courier New';
+
 
 
 * {
@@ -43,6 +45,7 @@ h1{
   font-size: rem(57);
   line-height: rem(64);
   text-transform: uppercase;
+  margin: 40px 0px;
   color: $white;
   @include media-max($medium) {
       font-size: rem(52);
@@ -56,7 +59,7 @@ h2{
   line-height: rem(60);
   text-transform: uppercase;
   color: $white;
-  margin: 20px 0px;
+  margin: 30px 0px 20px 0px;
   @include media-max($medium) {
       font-size: rem(45);
       line-height: rem(52);
@@ -112,8 +115,8 @@ h6{
 }
 p {
     font-family: $font_primary;
-    font-size: rem(18);
-    line-height: rem(28);
+    font-size: rem(22);
+    line-height: rem(42);
     font-weight: 300;
     color: $white;
     &.teaser {
@@ -121,9 +124,19 @@ p {
         line-height: rem(42);
     }
     @include media-max($medium) {
-        font-size: rem(14);
-        line-height: rem(22);
+        font-size: rem(18);
+        line-height: rem(32);
+        &.teaser {
+            font-size: rem(18);
+            line-height: rem(32);
+        }
     }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    max-width: 1050px !important;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 span, a, li, * {
@@ -132,4 +145,34 @@ span, a, li, * {
     line-height: inherit;
     font-weight: inherit;
     color: $white;
+}
+
+a {
+    text-decoration: none;
+    color: $purple-light;
+    &:hover {
+        transition: all 200ms ease;
+        color: lighten($purple-light, 5%);
+    }
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p {
+    margin-top: 0px;
+}
+
+button, a.button, .button  {
+    letter-spacing: 3px;
+    font-size: rem(22);
+    line-height: 1em;
+    color: $black;
+    background: $grey-light;
+    padding: 8px 12px;
+    white-space: nowrap;
+    font-family: $font_secondary;
+    transition: all 200ms ease;
+    display: inline-block;
+    &:hover {
+        cursor: pointer;
+        background: lighten($grey-light, 10%);
+    }
 }

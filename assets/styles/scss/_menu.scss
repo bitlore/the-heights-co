@@ -9,25 +9,16 @@ Stylesheet: Menu
         h3 {
             color: $black;
             background: $grey-light;
-            font-size: rem(41);
+            font-size: rem(38);
             line-height: 1em;
             letter-spacing: 5px;
             display: inline-block;
-            padding: 10px 12px;
+            padding: 10px 22px 10px 26px;
             position:relative;
-            span {
-                color: $black;
-                font-size: .6em;
-                letter-spacing: 0px;
-                line-height: 1em;
-                position: relative;
-                top: -6px;
-                &.left {
-                    left: 10px;
-                }
-                &.right {
-                    right: 13px;
-                }
+            @media screen and (max-width: $small) {
+                font-size: rem(34);
+                letter-spacing: 4px;
+                max-width: 250px !important;
             }
             &:before {
         		content: url(../images/menu-tab-grey.svg);
@@ -52,15 +43,27 @@ Stylesheet: Menu
         		-o-transform: translateX(-50%) scale(.4);
         	}
         }
+        span {
+            color: $black;
+            font-size: 26px;
+            z-index: 2;
+            letter-spacing: 0px;
+            line-height: 1em;
+            position: absolute;
+            top:  50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+            &.left {
+                left: 8px;
+            }
+            &.right {
+                right: 8px;
+            }
+        }
         p.teaser {
-            max-width: 700px;
+            max-width: 700px !important;
             margin: 0 auto;
         }
-    }
-}
-
-.strains-wrap.prices-hidden {
-    .strain-price {
-        display: none;
     }
 }

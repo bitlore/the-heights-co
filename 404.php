@@ -6,29 +6,26 @@
  */
 
 get_header(); ?>
-			
+
 	<div class="content">
 
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-	
-			<main class="main small-12 medium-8 large-8 cell" role="main">
 
-				<article class="content-not-found">
-				
-					<header class="article-header">
-						<h1><?php _e( 'Epic 404 - Article Not Found', 'jointswp' ); ?></h1>
+			<main class="main small-12 cell" role="main">
+
+				<article class="section-padding content-not-found">
+
+					<header class="text-center article-header">
+						<h2><?php _e( 'Epic 404', 'jointswp' ); ?></h2>
 					</header> <!-- end article header -->
-			
-					<section class="entry-content">
-						<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'jointswp' ); ?></p>
+
+					<section class="text-center entry-content">
+						<p><?php _e( 'Whoops - the page you were looking for doesn\'t exist at these Heights. Try again?', 'jointswp' ); ?></p>
 					</section> <!-- end article section -->
 
-					<section class="search">
-					    <p><?php get_search_form(); ?></p>
-					</section> <!-- end search section -->
-			
+
 				</article> <!-- end article -->
-	
+
 			</main> <!-- end #main -->
 
 		</div> <!-- end #inner-content -->

@@ -1,10 +1,7 @@
 <?php
 
-$price = get_field('price');
-$iconSrc = get_field('strain_icon')['url'];
 $titleString = get_the_title();
 $titleID = strtolower($titleString);
-$description = get_field('description');
 $class = get_field('class');
 $lineage = get_field('lineage');
 $source = get_field('source');
@@ -18,54 +15,17 @@ $harvest_date = get_field('harvest_date');
 $labs_url = get_field('link_to_lab_results');
 $available = get_field('available');
 
-$showPrices = get_field('show_prices_on_front_end', 'options');
+$available_date = get_field('available_date');
 
 ?>
 
-<section id="<?php echo $titleID; ?>" class="single-strain section-top-padding text-center">
+<section id="<?php echo $titleID; ?>" class="single-strain coming-soon section-top-padding text-center">
     <div class="grid-x grid-padding-x">
         <div class="strain-head  small-12 cell">
-            <?php if (!empty($iconSrc)) { ?>
-                <img class="strain-icon" src="<?php echo $iconSrc; ?>" alt="<?php echo the_title(); ?> Icon">
+            <h4 class="soon-title"><?php echo the_title(); ?></h4>
+            <?php if(!empty($available_date)) { ?>
+                <h5>AVAILABLE <?php echo $available_date; ?></h5>
             <?php } ?>
-            <h3><?php echo the_title(); ?></h3>
-            <?php if (!empty($description)) { ?>
-                <p class="teaser"><?php echo $description; ?></p>
-            <?php } ?>
-            <?php if(($showPrices == 1) && ($available !== 'no')) { ?>
-                <?php if(!empty($price)) { ?>
-                    <h5 class="strain-price"><span>$</span><?php echo $price; ?></h5>
-                <?php } ?>
-            <?php } ?>
-            <?php if($available == 'no') { ?>
-                    <h5 class="strain-price sold-out">SOLD OUT</h5>
-            <?php } ?>
-            <ul class="details top-level display-flex justify-center">
-                <?php if(!empty($class)) { ?>
-                    <li>
-                        <p class="label">CLASS</p>
-                        <div class="item display-flex">
-                            <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-class.svg" /><span><?php echo $class; ?></span>
-                        </div>
-                    </li>
-                <?php } ?>
-                <?php if(!empty($lineage)) { ?>
-                    <li>
-                        <p class="label">LINEAGE</p>
-                        <div class="item display-flex">
-                            <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lineage.svg" /><span><?php echo $lineage; ?></span>
-                        </div>
-                    </li>
-                <?php } ?>
-                <?php if(!empty($source)) { ?>
-                    <li>
-                        <p class="label">SOURCE</p>
-                        <div class="item display-flex">
-                            <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-source.svg" /><span><?php echo $source; ?></span>
-                        </div>
-                    </li>
-                <?php } ?>
-            </ul>
         </div>
     </div>
     <div class="more-info grid-x grid-padding-x">
@@ -83,6 +43,32 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
                 </svg>
             </a>
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
+                <ul class="details top-level display-flex justify-center">
+                    <?php if(!empty($class)) { ?>
+                        <li>
+                            <p class="label">CLASS</p>
+                            <div class="item display-flex">
+                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-class.svg" /><span><?php echo $class; ?></span>
+                            </div>
+                        </li>
+                    <?php } ?>
+                    <?php if(!empty($lineage)) { ?>
+                        <li>
+                            <p class="label">LINEAGE</p>
+                            <div class="item display-flex">
+                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lineage.svg" /><span><?php echo $lineage; ?></span>
+                            </div>
+                        </li>
+                    <?php } ?>
+                    <?php if(!empty($source)) { ?>
+                        <li>
+                            <p class="label">SOURCE</p>
+                            <div class="item display-flex">
+                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-source.svg" /><span><?php echo $source; ?></span>
+                            </div>
+                        </li>
+                    <?php } ?>
+                </ul>
                 <?php if (!empty($imageSrc)) { ?>
                     <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
                         <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
@@ -165,9 +151,6 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
                   <?php if(!empty($labs_url)) { ?>
                       <a class="labs" href="<?php echo $labs_url; ?>" target="blank">LAB RESULTS ></a>
                   <?php } ?>
-                  <?php if($available !== 'no') { ?>
-                      <a class="button order-link" href="<?php echo get_site_url(); ?>/order">ORDER ></a>
-                  <? } ?>
               </div>
             </div>
           </li>

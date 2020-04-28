@@ -453,7 +453,7 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     left: -9000px;
 }
 
-div.content, html, body {
+div.content, div.content-wrap html, body {
     background: $black;
 }
 
@@ -543,4 +543,8 @@ a.image-link {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
+}
+
+.content-wrap {
+    min-height: 300px;
 }
