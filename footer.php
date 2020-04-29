@@ -30,7 +30,9 @@
 
 		</div> <!-- end .off-canvas-wrapper -->
 
-		<?php wp_footer(); ?>
+        <?php get_template_part( 'parts/content', 'age-gate' ); ?>
+
+        <?php wp_footer(); ?>
 
 	</body>
 

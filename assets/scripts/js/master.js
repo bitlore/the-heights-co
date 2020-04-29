@@ -2,6 +2,32 @@
 Custom Functionality for The Heights Theme
 */
 
+/////////////////////////////////////
+// Age Gate //
+////////////////////////////////////
+
+var ageGateOverlay = document.getElementById('age-gate-overlay');
+var ageGate = document.getElementById('age-gate');
+
+
+function showAgeGate() {
+    if (Cookies.get('ageVerified')) {
+        // do nothing
+    } else {
+        ageGateOverlay.classList.add('show');
+        ageGate.classList.add('show');
+    }
+}
+
+function hideAgeGate() {
+    Cookies.set('ageVerified', 'true', { expires: 365, sameSite: 'lax' });
+    ageGateOverlay.classList.add('fade-out');
+    ageGate.classList.add('fade-out');
+    setTimeout(function() {
+        ageGateOverlay.classList.remove('show');
+        ageGate.classList.remove('show');
+    }, 500);
+}
 
 /////////////////////////////////////
 // Mobile Menu Button Click Event //
@@ -62,4 +88,7 @@ window.onresize = function() {
 };
 
 
-window.onload = function() { stickNav() };
+window.onload = function() {
+    showAgeGate();
+    stickNav();
+};

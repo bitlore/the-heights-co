@@ -175,4 +175,14 @@ button, a.button, .button  {
         cursor: pointer;
         background: lighten($grey-light, 10%);
     }
+    &.ghost {
+        background: transparent;
+        border: 1px solid $white;
+        color: $white;
+        transition: all 200ms ease;
+        &:hover {
+            background: $white;
+            color: $black;
+        }
+    }
 }
