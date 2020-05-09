@@ -31,7 +31,9 @@ section.single-strain {
         &.sold-out {
             color: $purple-light;
             border: 2px solid $purple-light;
-            padding: 5px 10px;
+            padding: 5px 8px;
+            font-size:25px;
+            letter-spacing: 0px;
         }
     }
     .strain-icon {
@@ -193,13 +195,17 @@ section.single-strain {
             margin: 0px auto 30px auto;
         }
         .strain-head {
-            h4 {
+            h3 {
                 margin-top: 0px;
+                font-size: rem(38);
             }
             h5 {
-                color: $grey-light;
-                letter-spacing: 2px;
                 margin: 0px auto;
+                span {
+                    font-weight: lighter;
+                    font-family: serif;
+                    margin: 0px 3px;
+                }
             }
         }
 

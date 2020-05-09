@@ -22,9 +22,9 @@ $available_date = get_field('available_date');
 <section id="<?php echo $titleID; ?>" class="single-strain coming-soon section-top-padding text-center">
     <div class="grid-x grid-padding-x">
         <div class="strain-head  small-12 cell">
-            <h4 class="soon-title"><?php echo the_title(); ?></h4>
+            <h3 class="soon-title"><?php echo the_title(); ?></h3>
             <?php if(!empty($available_date)) { ?>
-                <h5>AVAILABLE <?php echo $available_date; ?></h5>
+                <h5>AVAILABLE <span>|</span> <?php echo $available_date; ?></h5>
             <?php } ?>
         </div>
     </div>

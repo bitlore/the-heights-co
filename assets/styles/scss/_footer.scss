@@ -50,47 +50,48 @@ footer.footer {
             }
         }
     }
-    .footer-links {
-        @include media-max($small) {
-            padding-top: 0px;
-            ul {
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-                justify-content: center;
-            }
-            li {
-                padding: 0px 7px;
-            }
-            li span {
-                display: none;
-            }
+}
+.footer-links {
+    @include media-max($small) {
+        padding-top: 0px;
+        ul {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+        }
+        li {
+            padding: 0px 7px;
+        }
+        li span {
+            display: none;
         }
     }
-    .footer-link {
-        display: block;
-        text-decoration: none;
+}
+.footer-link {
+    display: block;
+    text-decoration: none;
+    color: $white;
+    font-family: $font_secondary;
+    white-space: nowrap;
+    &:hover {
         color: $white;
-        font-family: $font_secondary;
-        white-space: nowrap;
-        &:hover {
-            text-decoration: underline;
-            transition: all 300ms ease;
-        }
+        text-decoration: underline;
+        transition: all 300ms ease;
     }
-    .footer-icon {
-        width: 25px;
-        height: 25px;
-        margin: 10px 10px 10px 10px;
-        display: inline-block;
-        @include media-max($medium) {
-            display: block;
-            margin: 7px auto;
-        }
-        @include media-max($small) {
-            width: 30px;
-            height: 30px;
-        }
+}
+.footer-icon {
+    width: 25px;
+    height: 25px;
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    @include media-max($medium) {
+        display: block;
+        margin: 7px auto;
+    }
+    @include media-max($small) {
+        width: 30px;
+        height: 30px;
     }
 }
