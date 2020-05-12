@@ -7,9 +7,9 @@ get_header(); ?>
 
 <div class="content-wrap">
 
-	<section>
+	<section class="section-bottom-padding">
 		<div class="section-padding contact-top grid-x grid-padding-x">
-			<div class="form cell small-12 medium-6 display-flex direction-column align-center justify-center">
+			<div class="form cell small-12 medium-6 display-flex direction-column justify-center">
 				<div class="form-wrapper">
 					<h1><?php echo get_field('form_headline'); ?></h1>
 					<?php echo get_field('contact_form_shortcode'); ?>
@@ -43,16 +43,28 @@ get_header(); ?>
 	</section>
 
 	<?php if(get_field('hide_map_section') === false) { ?>
-	<section class="section-padding">
-		<div class="grid-x grid-padding-x map-section">
-			<div class="cell small-12 medium-4">
-				<div class="locations">
-					<h3><?php echo get_field('map_headline'); ?></h3>
-
+	<section class="section-padding map-section">
+		<div class="grid-x grid-padding-x section-bottom-padding">
+			<div class="cell locations small-12 medium-4 display-flex direction-column justify-between">
+				<h3><?php echo get_field('map_headline'); ?></h3>
+				<?php if (have_rows('locations')) { ?>
+				<div class="locations-wrap">
+					<div class="locations-list">
+						<?php while(have_rows('locations')) { the_row(); ?>
+							<div class="location display-flex align-start">
+								<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
+								<div class="location-text">
+									<p class="name"><?php echo get_sub_field('name'); ?></p>
+									<p><?php echo get_sub_field('address'); ?></p>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
 				</div>
+				<?php } ?>
 			</div>
 			<div class="map cell small-12 medium-8">
-
+				<div class="map" id="map"></div>
 			</div>
 		</div>
 	</section>
@@ -61,5 +73,17 @@ get_header(); ?>
 
 
 </div> <!-- end content-wrap -->
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script type="text/javascript">
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYml0bG9yZSIsImEiOiJjazh0cG5jdzYwMnM1M2xsaTA4MXR6aWZ1In0.zlBIoT6AuSU1qiN0VXYg2g';
+	var map = new mapboxgl.Map({
+		container: 'map', // container id
+		style: 'mapbox://styles/bitlore/ck8tposni0m5k1ip9bojmz03b', // stylesheet location
+		center: [-122.658579, 45.518278], // starting position [lng, lat]
+		zoom: 12.78 // starting zoom
+	});
+</script>
 
 <?php get_footer(); ?>

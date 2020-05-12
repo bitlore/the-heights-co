@@ -497,8 +497,8 @@ a.image-link {
 .align-baseline {
 	align-items: baseline;
 }
-.align-top {
-	align-items: top;
+.align-start {
+	align-items: flex-start;
 }
 .direction-column {
 	flex-direction: column;
