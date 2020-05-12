@@ -9,7 +9,7 @@ get_header(); ?>
 
 	<section>
 		<div class="section-padding contact-top grid-x grid-padding-x">
-			<div class="form cell small-12 medium-6 display-flex direction-column align-center justify-end">
+			<div class="form cell small-12 medium-6 display-flex direction-column align-center justify-center">
 				<div class="form-wrapper">
 					<h1><?php echo get_field('form_headline'); ?></h1>
 					<?php echo get_field('contact_form_shortcode'); ?>

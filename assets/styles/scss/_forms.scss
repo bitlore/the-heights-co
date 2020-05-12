@@ -26,14 +26,80 @@ body {
     .gform_wrapper .gfield_required {
         color: $purple-light;
     }
+    .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type=submit] {
+        color: $grey-light;
+        text-transform: uppercase;
+        font-family: $font_secondary;
+        font-size: rem(20);
+        letter-spacing: 3px;
+        padding: 5px 30px 5px 10px;
+        background: transparent;
+        border: 2px solid $purple-light;
+        line-height: 1 !important;
+        min-height: 34px !important;
+        &:focus {
+            outline: none;
+        }
+    }
+    .gform_footer.top_label {
+        position: relative;
+        display: inline-block;
+        padding-top: 0px;
+        margin-top: 20px;
+        width: auto;
+        height: 34px;
+        &::after {
+            content: '';
+            background-image: url('../images/arrow-right.svg;');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            left: 97px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 20px;
+            height: 34px;
+            pointer-events: none;
+        }
+    }
+    .gform_wrapper div.validation_error {
+        color: $purple-light;
+        border-bottom: none;
+        border-top: 1px solid $purple-light;
+        text-align: left;
+        font-size: rem(14);
+        font-family: $font_primary;
+        padding-bottom:0px;
+        max-width: 275px;
+    }
+    .gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+        border-top: none;
+        border-bottom: none;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background: transparent;
+        color: $purple-light;
+        font-family: $font_primary;
+    }
+    .gform_wrapper .description, .gform_wrapper .gfield_description, .gform_wrapper .gsection_description, .gform_wrapper .instruction {
+        padding-right:0px;
+        color: $purple-light;
+        font-family: $font_primary;
+    }
+    .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
+        border: 1px solid $purple-light;
+    }
+    .gform_wrapper .field_description_below .gfield_description {
+        padding-top: 5px;
+    }
 }
 
 .page-template-template-contact {
     .form-wrapper {
-        margin-left: 75px;
-        form {
-            max-width: 426px;
-        }
         .gfield > div.ginput_container > input[type="text"] {
             width: 70%;
             font-family: $font_secondary !important;
