@@ -77,7 +77,8 @@ get_header(); ?>
 				</div>
 				<?php } ?>
 			</div>
-			<div class="cell small-12 medium-8">
+			<div class="cell small-12 medium-8 map-cell">
+				<h3><?php echo get_field('map_headline'); ?></h3>
 				<div class="map" id="map"></div>
 			</div>
 		</div>
@@ -102,6 +103,7 @@ get_header(); ?>
 	});
 
 	map.addControl(new mapboxgl.NavigationControl());
+	map.scrollZoom.disable();
 
 
     function setMarkers(map, locationsArray) {

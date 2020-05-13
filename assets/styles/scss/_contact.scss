@@ -31,10 +31,28 @@ Stylesheet: Contact Page
         form {
             max-width: 426px;
             margin: 0;
+            @media screen and (max-width: $small) {
+                max-width: none;
+            }
         }
     }
-    .cell.form, .cell.locations {
+    .cell.form {
         padding-left: 125px;
+        @media screen and (max-width: 1240px) {
+            padding-left: 60px;
+        }
+        @media screen and (max-width:$small) {
+            padding-left: .9375rem;
+        }
+    }
+    .cell.locations {
+        padding-left: 125px;
+        @media screen and (max-width: 1240px) {
+            padding-left: 60px;
+        }
+        @media screen and (max-width: 980px) {
+            padding-left: .9375rem;
+        }
     }
     .contact-info {
         padding-top: 40vw;
@@ -42,20 +60,16 @@ Stylesheet: Contact Page
         @media screen and (min-width: 1201px) {
             padding-top: 480px;
         }
+        @media screen and (max-width: $small) {
+            padding-top: 80px;
+            padding-bottom: 0px;
+        }
     }
     .contact-icon {
         width: 25px;
         height: 25px;
         margin: 10px 10px 10px 10px;
         display: inline-block;
-        @include media-max($medium) {
-            display: block;
-            margin: 7px auto;
-        }
-        @include media-max($small) {
-            width: 30px;
-            height: 30px;
-        }
     }
     .contact-links {
         ul {
@@ -80,9 +94,7 @@ Stylesheet: Contact Page
     }
     .map-section {
         background-color: #0f0f0f;
-        .locations {
-            height: 620px; // height of map plus margin
-        }
+        h3 { margin-right: 0; margin-left: 0;}
         .locations-wrap { // scrollbar
             background: $black;
             padding: 25px 20px;
@@ -127,6 +139,9 @@ Stylesheet: Contact Page
             height: 600px;
             position: relative;
             margin-top: 20px;
+            @media screen and (max-width: $small) {
+                height: 400px;
+            }
             &::after {
               content: '';
               display: block;
@@ -160,6 +175,42 @@ Stylesheet: Contact Page
         }
         .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl {
             display: none !important;
+        }
+        // cell layout
+        .locations {
+            height: 620px;
+            h3 { max-width: 260px !important; }
+            @media screen and (max-width: 980px) {
+                height: auto;
+                width: 100% !important;
+                -ms-flex-order: 2;
+                order: 2;
+                h3 { display: none; }
+                .locations-list {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                }
+                .location {
+                    padding: 0px 10px;
+                    margin-bottom: 40px;
+                }
+                .location-text { min-width: 130px;}
+                .locations-wrap {
+                    background: transparent;
+                    padding: 40px 0px;
+                }
+            }
+
+        }
+        .map-cell {
+            h3 { display: none; }
+            @media screen and (max-width: 980px) {
+                width: 100% !important;
+                -ms-flex-order: 1;
+                order: 1;
+                h3 { display: block; text-align: center; margin-bottom: 40px; }
+            }
         }
     }
 }
