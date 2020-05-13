@@ -43,6 +43,11 @@ get_header(); ?>
 	</section>
 
 	<?php if(get_field('hide_map_section') === false) { ?>
+
+	<script type="text/javascript">
+            var locationsArray = [];
+     </script>
+
 	<section class="section-padding map-section">
 		<div class="grid-x grid-padding-x section-bottom-padding">
 			<div class="cell locations small-12 medium-4 display-flex direction-column justify-between">
@@ -51,6 +56,15 @@ get_header(); ?>
 				<div class="locations-wrap">
 					<div class="locations-list">
 						<?php while(have_rows('locations')) { the_row(); ?>
+
+						  <script type="text/javascript">
+	                          var flowerLocation = new Object();
+	                          flowerLocation.name = "<?php echo get_sub_field('name'); ?>";
+	                          flowerLocation.lat = '<?php echo get_sub_field('latitude'); ?>';
+	                          flowerLocation.long = '<?php echo get_sub_field('longitude'); ?>';
+	                          locationsArray.push(flowerLocation);
+	                      </script>
+
 							<div class="location display-flex align-start">
 								<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
 								<div class="location-text">
@@ -63,7 +77,7 @@ get_header(); ?>
 				</div>
 				<?php } ?>
 			</div>
-			<div class="map cell small-12 medium-8">
+			<div class="cell small-12 medium-8">
 				<div class="map" id="map"></div>
 			</div>
 		</div>
@@ -77,13 +91,40 @@ get_header(); ?>
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
 <script type="text/javascript">
+
 	mapboxgl.accessToken = 'pk.eyJ1IjoiYml0bG9yZSIsImEiOiJjazh0cG5jdzYwMnM1M2xsaTA4MXR6aWZ1In0.zlBIoT6AuSU1qiN0VXYg2g';
+
 	var map = new mapboxgl.Map({
-		container: 'map', // container id
-		style: 'mapbox://styles/bitlore/ck8tposni0m5k1ip9bojmz03b', // stylesheet location
-		center: [-122.658579, 45.518278], // starting position [lng, lat]
-		zoom: 12.78 // starting zoom
+		container: 'map',
+		style: 'mapbox://styles/bitlore/ck8tposni0m5k1ip9bojmz03b',
+		center: [<?php echo get_field('map_center_longitude'); ?>, <?php echo get_field('map_center_latitude'); ?>], // [lng, lat]
+		zoom: <?php echo get_field('map_zoom'); ?>
 	});
+
+	map.addControl(new mapboxgl.NavigationControl());
+
+
+    function setMarkers(map, locationsArray) {
+        for(var i = 0; i < locationsArray.length; i++) {
+
+            var locLat = locationsArray[i].lat;
+            var locLong = locationsArray[i].long;
+            var locName = locationsArray[i].name;
+
+            var marker = document.createElement('div');
+			var nameTag = document.createElement("p");
+			var markerName = document.createTextNode(locName);
+			nameTag.appendChild(markerName);
+			marker.className = 'marker';
+			marker.appendChild(nameTag);
+
+            new mapboxgl.Marker(marker, {offset:[0,0]})
+	        .setLngLat([locLong,locLat])
+	        .addTo(map);
+
+        }
+    }
+    setMarkers(map, locationsArray);
 </script>
 
 <?php get_footer(); ?>

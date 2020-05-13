@@ -80,8 +80,8 @@ Stylesheet: Contact Page
     }
     .map-section {
         background-color: #0f0f0f;
-        .locations, .map {
-            height: 650px;
+        .locations {
+            height: 620px; // height of map plus margin
         }
         .locations-wrap { // scrollbar
             background: $black;
@@ -113,7 +113,7 @@ Stylesheet: Contact Page
             p {
                 font-family: $font_secondary;
                 font-size: rem(13);
-                line-height: rem(24);
+                line-height: rem(22);
                 margin: 0;
             }
             p.name {
@@ -124,11 +124,13 @@ Stylesheet: Contact Page
             }
         }
         .map {
+            height: 600px;
             position: relative;
+            margin-top: 20px;
             &::after {
               content: '';
               display: block;
-              background:linear-gradient(45deg, #0f0f0f, transparent 35%);
+              background:linear-gradient(45deg, #0a0a0a, transparent 55%);
               position: absolute;
               top: 0;
               left: 0;
@@ -137,9 +139,27 @@ Stylesheet: Contact Page
               pointer-events: none;
               z-index: 2;
             }
+            .marker {
+              background-image: url('../images/map-marker.png');
+              background-size: 30px 50px;
+              background-position: center bottom;
+              background-repeat: no-repeat;
+              padding-bottom: 50px;
+              top: -35px; //offset
+              p {
+                  margin-bottom: 5px;
+                  margin-top: 0px;
+                  font-family: $font_tertiary;
+                  text-transform: uppercase;
+                  text-align: center;
+                  min-width: 60px;
+                  font-size: rem(14);
+                  line-height: 1;
+              }
+            }
         }
-        .mapboxgl-ctrl-bottom-right {
-            display: none;
+        .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl {
+            display: none !important;
         }
     }
 }
