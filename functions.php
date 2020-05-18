@@ -195,7 +195,7 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 
       $content .= '<br /><label class="gfield_label">Available Strains</label><br />';
 
-      $content .= '<span style="margin-bottom:1em; font-size: .7em;">Enter the quantity and material type next to any strain you would like to order.</span><br /><br />';
+      $content .= '<span style="margin-bottom:1em; font-size: .8em; font-family: UnitedSansRegMed;">Enter the quantity and material type next to any strain you would like to order.</span><br /><br />';
 
       //strain loop
       while ( $products->have_posts() ) : $products->the_post();
@@ -209,18 +209,18 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
     		?>
 
 
-    		<div class="gfield_list gfield_list_container gfield_list_group" data-id="<?php echo $strain_title; ?>" style="margin-bottom:1em;display: flex;">
+    		<div class="gfield_list gfield_list_container gfield_list_group" data-id="<?php echo $strain_title; ?>" style="margin-bottom:1.3em;display: flex;">
                   <span class="gfield_list_cell gfield_list_5_cell1" data-label="strain" style="display:inline-block;min-width:15em;">
-                    <input type="text" name="input_6[]" value="<?php echo $name; ?>" readonly="readonly" style="color:white; border:none; background:transparent; pointer-events:none; padding-left: 0; font-weight: bold;">
+                    <input type="text" name="input_6[]" value="<?php echo $name; ?>" readonly="readonly" style="color:white; border:none; background:transparent; pointer-events:none; padding-left: 0; font-weight: bold; font-family: TradeGoth; text-transform: uppercase; letter-spacing: 1px;font-size: 1.2em;padding-bottom: 0px;padding-top: 0px; height: auto !important;">
                     <br />
-                    <span style="font-size: .7em;"><?php echo get_field('thc') ?> THC, Harvested <?php echo get_field('harvest_date') ?></span>
+                    <span style="font-size: .7em; font-family: UnitedSansRegMed;"><?php echo get_field('thc') ?> THC, Harvested <?php echo get_field('harvest_date') ?></span>
                   </span>
     			  <span class="gfield_list_cell gfield_list_5_cell2" data-label="pounds" style="margin:0 1em;">
-    				  <input name="input_6[]" type="number" value="" min="0" style="width:4em;color:black;"/>
-                      <label for="lb">lb(s)</label>
+    				  <input name="input_6[]" type="number" value="" min="0" style="width:45px;color:black; font-family: UnitedSansRegMed; text-align: right;"/>
+                      <label for="lb" style="font-family: UnitedSansRegMed;">lb(s)</label>
     			  </span>
                   <span class="gfield_list_cell gfield_list_5_cell3" data-label="material" style="margin:0 1em;">
-                    <select name="input_6[]" style="width:8em;color:black;">
+                    <select name="input_6[]" style="width:8.5em;color:black;">
                       <option value="" selected>Material Type</option>
                       <option value="A Buds">Flower - A Buds</option>
                       <option value="B Buds">Flower - B Buds</option>
@@ -246,47 +246,3 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 }
 // Use the field ID set up for the Strains field
 add_filter('gform_field_content_1_6','generate_strain_form', 10, 5);
-
-
-// add_action( 'gform_pre_submission_1', 'order_form_pre_submission' );
-// function order_form_pre_submission($form) {
-//   echo var_dump($form);
-// }
-
-//clear strains input
-// add_action( 'gform_after_submission_1', 'remove_form_entry' );
-function remove_form_entry( $entry ) {
-    // $list_values = unserialize( rgar( $entry, '14' ) );
-    // echo var_dump($list_values);
-    // GFAPI::delete_entry( $entry['14'] );
-
-    gform_delete_meta( 14, 'Strains' );
-}
-
-
-// add_filter( 'gform_confirmation_1', 'gravityforms_custom_confirmation', 10, 4 );
-// function gravityforms_custom_confirmation( $confirmation, $form, $entry, $ajax ) {
-//   //intentionally do nothing
-// }
-
-// add_action( 'gform_entry_detail_content_before', 'remove_cached_order_fields', 10, 2);
-// function remove_cached_order_fields( $form, $entry ) {
-//     $use_choice_text = false;
-//     $use_admin_label = false;
-//     gform_delete_meta( $entry['14'], "gform_product_info_{$use_choice_text}_{$use_admin_label}" );
-// };
-
-
-// Allow the Gravity form to stay on the page when confirmation displays.
-// add_filter( 'gform_pre_submission_filter', 'dw_show_confirmation_and_form' );
-// function dw_show_confirmation_and_form( $form ) {
-// 	$shortcode = '[gravityform id="' . $form['id'] . '" title="true" description="false"]';
-//
-// 	if ( array_key_exists( 'confirmations', $form ) ) {
-// 		foreach ( $form['confirmations'] as $key => $confirmation ) {
-// 			$form['confirmations'][ $key ]['message'] = $shortcode . '<div class="confirmation-message">' . $form['confirmations'][ $key ]['message'] . '</div>';
-// 		}
-// 	}
-//
-// 	return $form;
-// }
