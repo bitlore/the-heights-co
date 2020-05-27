@@ -28,16 +28,28 @@ footer.footer {
     h6, p, a {
         margin: 0;
     }
+    a {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     h6 {
         letter-spacing: 2px;
         @include media-max($small) {
             font-size: rem(12);
             letter-spacing: 1px;
         }
-        span.smaller {
-            font-size: .7em;
-            letter-spacing: 1px;
-        }
+    }
+    .smaller {
+        font-size: .7em;
+        letter-spacing: 1px;
+    }
+    .tiny {
+        font-size: .6em;
+        letter-spacing: 1px;
+        line-height: 1.5;
     }
     ul {
         margin: 0;

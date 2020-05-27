@@ -16,7 +16,9 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="contact-info cell small-12 medium-6 display-flex direction-column align-center">
+				<?php if(!empty(get_field('contact_info_headline'))) { ?>
 				<h3><?php echo get_field('contact_info_headline'); ?></h3>
+			    <?php } ?>
 				<div class="contact-links">
 					<?php if(have_rows('contact_items')) { ?>
 						<ul>

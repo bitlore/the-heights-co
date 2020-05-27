@@ -7,8 +7,8 @@
 				<footer class="footer" role="contentinfo">
 
 					<div class="footer-wrap grid-x grid-padding-x">
-						<div class="footer-content row-padding display-flex justify-center align-center text-center small-12 medium-6 medium-offset-3 large-8 large-offset-2 cell">
-							<h6><?php echo get_field('footer_text', 'option'); ?></h6>
+						<div class="footer-content row-padding display-flex justify-center align-center direction-column text-center small-12 medium-6 medium-offset-3 large-8 large-offset-2 cell">
+							<?php echo get_field('footer_text', 'option'); ?>
 						</div>
                         <div class="footer-links row-padding small-12 medium-3 large-2 cell">
                             <?php if(have_rows('footer_links', 'option')) { ?>
