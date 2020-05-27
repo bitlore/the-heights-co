@@ -22,14 +22,15 @@ Stylesheet: Typography
 }
 
 @font-face {
-  font-family: "JMHTypewriter";
-  src: url("../fonts/JMH-Typewriter-mono-Black.ttf") format('truetype');
+  font-family: "Coustard";
+  src: url("../fonts/Coustard-Regular.ttf") format('truetype');
 }
+
 
 $font_secondary: "TradeGoth", 'Helvetica', 'Arial', sans-serif;
 $font_primary: "UnitedSansRegMed", 'Andale Mono', 'Monotype', 'Courier New';
 $font_primary_bold: "UnitedSansRegHev", 'Andale Mono', 'Monotype', 'Courier New';
-$font_tertiary: "JMHTypewriter", 'Andale Mono', 'Monotype', 'Courier New';
+$font_tertiary: "Coustard", 'Andale Mono', 'Monotype', 'Courier New';
 
 
 
@@ -185,4 +186,23 @@ button, a.button, .button  {
             color: $black;
         }
     }
+}
+.page-template-default {
+    section.wp-blocks>ul {
+        max-width: 1050px !important;
+        margin-right: auto;
+        margin-left: auto;
+        font-family: $font_primary;
+        font-size: inherit;
+        padding-left: 3em;
+        li {
+            font-size: rem(22);
+            line-height: 1.5;
+            font-weight: 300;
+            @include media-max($medium) {
+                font-size: rem(18);
+            }
+        }
+    }
+
 }

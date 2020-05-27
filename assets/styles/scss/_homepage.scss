@@ -7,6 +7,7 @@ Stylesheet: Home
 .page-template-template-home {
     .main-image {
         height: 850px;
+        background-repeat: no-repeat;
         @media screen and(max-width: $medium) {
             height: 550px;
         }
@@ -24,6 +25,11 @@ Stylesheet: Home
             @media screen and (max-width: $small) {
                 letter-spacing: 3px;
                 margin-top: 0px;
+            }
+        }
+        h3 {
+            @media screen and (max-width: $small) {
+                font-size: 2em;
             }
         }
         p {

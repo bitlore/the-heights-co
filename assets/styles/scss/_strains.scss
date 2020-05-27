@@ -119,9 +119,9 @@ section.single-strain {
             min-height: 350px;
             max-height: 400px;
             &.fallback {
-                filter: grayscale(100%);
-                // min-height: 200px;
-                // max-height: 250px;
+                // filter: grayscale(100%);
+                min-height: 200px;
+                max-height: 250px;
             }
             @media screen and (max-width: $small) {
                 max-height: 300px;

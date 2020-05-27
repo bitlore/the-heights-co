@@ -209,21 +209,20 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
     		?>
 
 
-    		<div class="gfield_list gfield_list_container gfield_list_group" data-id="<?php echo $strain_title; ?>" style="margin-bottom:1.3em;display: flex;">
-                  <span class="gfield_list_cell gfield_list_5_cell1" data-label="strain" style="display:inline-block;min-width:15em;">
+    		<div class="gfield_list gfield_list_container gfield_list_group" data-id="<?php echo $strain_title; ?>" style="margin-bottom:2.5em;display: flex; flex-wrap: wrap;">
+                  <span class="gfield_list_cell gfield_list_5_cell1" data-label="strain" style="display:inline-block;width:50%;">
                     <input type="text" name="input_6[]" value="<?php echo $name; ?>" readonly="readonly" style="color:white; border:none; background:transparent; pointer-events:none; padding-left: 0; font-weight: bold; font-family: TradeGoth; text-transform: uppercase; letter-spacing: 1px;font-size: 1.2em;padding-bottom: 0px;padding-top: 0px; height: auto !important;">
                     <br />
                     <span style="font-size: .7em; font-family: UnitedSansRegMed;"><?php echo get_field('thc') ?> THC, Harvested <?php echo get_field('harvest_date') ?></span>
                   </span>
-    			  <span class="gfield_list_cell gfield_list_5_cell2" data-label="pounds" style="margin:0 1em;">
+    			  <span class="gfield_list_cell gfield_list_5_cell2" data-label="pounds" style="margin:.5em 1em 0 0;">
     				  <input name="input_6[]" type="number" value="" min="0" style="width:45px;color:black; font-family: UnitedSansRegMed; text-align: right;"/>
                       <label for="lb" style="font-family: UnitedSansRegMed;">lb(s)</label>
     			  </span>
-                  <span class="gfield_list_cell gfield_list_5_cell3" data-label="material" style="margin:0 1em;">
+                  <span class="gfield_list_cell gfield_list_5_cell3" data-label="material" style="margin:.5em 1em 0 0;">
                     <select name="input_6[]" style="width:8.5em;color:black;">
                       <option value="" selected>Material Type</option>
-                      <option value="A Buds">Flower - A Buds</option>
-                      <option value="B Buds">Flower - B Buds</option>
+                      <option value="Flower">Flower</option>
                       <option value="Trim">Trim</option>
                     </select>
                   </span>
@@ -246,3 +245,90 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 }
 // Use the field ID set up for the Strains field
 add_filter('gform_field_content_1_6','generate_strain_form', 10, 5);
+
+
+/**
+ * Disable Editor
+ *
+ * @package      EAStarter
+ * @author       Bill Erickson
+ * @since        1.0.0
+ * @license      GPL-2.0+
+**/
+
+/**
+ * Templates and Page IDs without editor
+ *
+ */
+function ea_disable_editor( $id = false ) {
+
+	$excluded_templates = array(
+        'template-home.php',
+        'template-contact.php',
+        'template-gallery.php',
+        'template-menu.php',
+        'template-order.php'
+	);
+
+	$excluded_ids = array(
+	);
+
+	if( empty( $id ) )
+		return false;
+
+	$id = intval( $id );
+	$template = get_page_template_slug( $id );
+
+	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
+}
+
+/**
+ * Disable Gutenberg by template
+ *
+ */
+function ea_disable_gutenberg( $can_edit, $post_type ) {
+
+	if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
+		return $can_edit;
+
+	if( ea_disable_editor( $_GET['post'] ) )
+		$can_edit = false;
+
+	return $can_edit;
+
+}
+add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
+add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
+
+function bitlore_remove_editor_from_some_pages()
+{
+    global $post;
+
+    if( ! is_a($post, 'WP_Post') ) {
+        return;
+    }
+
+
+    /* basename is used for templates that are in the subdirectory of the theme */
+    $current_page_template_slug = basename( get_page_template_slug($post_id) );
+
+    /* file names of templates to remove the editor on */
+    $excluded_template_slugs = array(
+        'template-home.php',
+        'template-contact.php',
+        'template-gallery.php',
+        'template-menu.php',
+        'template-order.php'
+    );
+
+    if( in_array($current_page_template_slug, $excluded_template_slugs) ) {
+        /* remove editor from pages */
+        remove_post_type_support('page', 'editor');
+        /* if needed, add posts or CPTs to remove the editor on */
+        // remove_post_type_support('post', 'editor');
+        // remove_post_type_support('movies', 'editor');
+    }
+
+}
+
+add_action('admin_enqueue_scripts', 'bitlore_remove_editor_from_some_pages');

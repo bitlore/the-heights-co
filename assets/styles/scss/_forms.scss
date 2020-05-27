@@ -18,6 +18,7 @@ body {
     }
     .gform_wrapper .top_label .gfield_label, .gform_wrapper legend.gfield_label {
         font-family: $font_tertiary;
+        letter-spacing: 1px;
         color: $white;
         font-size: rem(16);
         text-transform: uppercase;
@@ -105,16 +106,27 @@ body {
             outline: none !important;
         }
     }
-    .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield input[type=radio], .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+    .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield input[type=radio], .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select, .gform_wrapper select {
         height: 30px;
         border-radius: 0px;
+        color: $black !important;
+        width: 100% !important;
+        background: $white;
+        border: 0px !important;
         font-family: $font_primary !important;
+        &:focus {
+            outline: none !important;
+        }
     }
-    .gfield_list_cell input, .gfield_list_cell select, .gfield_list_cell option { &:focus { outline: none !important; }}
+    .gfield_list_cell input, .gfield_list_cell select, .gfield_list_cell option {
+        &:focus { outline: none !important;
+        }
+    }
     .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
         border: none;
         border-radius: 0px;
         height: 30px;
+        color: $black;
     }
     .gfield > div.ginput_container > input[type="text"] {
         font-family: $font_secondary !important;
@@ -175,9 +187,14 @@ body {
     }
     .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li {
         margin: 0px 15px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
     }
     .gform_wrapper.gf_browser_chrome .gfield_checkbox li input, .gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
-        margin-top: 0px;
         height: 30px;
         font-family: $font_secondary !important;
         text-transform:uppercase;
@@ -186,10 +203,20 @@ body {
         top: -2px;
         &:focus { outline: none !important; }
     }
+    .gform_wrapper.gf_browser_safari .gfield_checkbox li input, .gform_wrapper.gf_browser_safari .gfield_checkbox li input[type=checkbox], .gform_wrapper.gf_browser_safari .gfield_radio li input[type=radio] {
+        margin-top: 0px;
+    }
+    .gform_wrapper .gfield_checkbox li input, .gform_wrapper .gfield_checkbox li input[type=checkbox], .gform_wrapper .gfield_radio li input[type=radio] {
+        margin-top: 0px;
+        margin-right: 8px;
+    }
     .gform_wrapper ul.gfield_checkbox li label, .gform_wrapper ul.gfield_radio li label {
         font-family: $font_primary;
         font-size: 16px;
         line-height: 30px;
+        @media screen and (max-width: $small) {
+            font-size: 14px;
+        }
     }
     .gform_wrapper h3.gform_title {
         display: none;
