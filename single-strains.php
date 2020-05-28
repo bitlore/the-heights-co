@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="content-wrap">
+<div class="content-wrap section-padding">
 
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

@@ -44,19 +44,19 @@ $available_date = get_field('available_date');
             </a>
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
                 <ul class="details top-level display-flex justify-center">
-                    <?php if(!empty($class)) { ?>
-                        <li>
-                            <p class="label">CLASS</p>
-                            <div class="item display-flex">
-                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-class.svg" /><span><?php echo $class; ?></span>
-                            </div>
-                        </li>
-                    <?php } ?>
                     <?php if(!empty($lineage)) { ?>
                         <li>
                             <p class="label">LINEAGE</p>
                             <div class="item display-flex">
                                 <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lineage.svg" /><span><?php echo $lineage; ?></span>
+                            </div>
+                        </li>
+                    <?php } ?>
+                    <?php if(!empty($breeder)) { ?>
+                        <li>
+                            <p class="label">BREEDER</p>
+                            <div class="item display-flex">
+                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-breeder.svg" /><span><?php echo $breeder; ?></span>
                             </div>
                         </li>
                     <?php } ?>
@@ -83,19 +83,19 @@ $available_date = get_field('available_date');
                 <?php } ?>
                 <ul data-equalizer-watch class="details low-level small-12 medium-7 large-5 cell">
                     <div class="mobile-details">
-                        <?php if(!empty($class)) { ?>
-                            <li>
-                                <p class="label">CLASS</p>
-                                <div class="item display-flex">
-                                    <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-class.svg" /><span><?php echo $class; ?></span>
-                                </div>
-                            </li>
-                        <?php } ?>
                         <?php if(!empty($lineage)) { ?>
                             <li>
                                 <p class="label">LINEAGE</p>
                                 <div class="item display-flex">
                                     <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lineage.svg" /><span><?php echo $lineage; ?></span>
+                                </div>
+                            </li>
+                        <?php } ?>
+                        <?php if(!empty($breeder)) { ?>
+                            <li>
+                                <p class="label">BREEDER</p>
+                                <div class="item display-flex">
+                                    <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-breeder.svg" /><span><?php echo $breeder; ?></span>
                                 </div>
                             </li>
                         <?php } ?>
@@ -108,14 +108,14 @@ $available_date = get_field('available_date');
                             </li>
                         <?php } ?>
                     </div>
-                  <?php if(!empty($breeder)) { ?>
-                      <li>
-                          <p class="label">BREEDER</p>
-                          <div class="item display-flex">
-                              <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-breeder.svg" /><span><?php echo $breeder; ?></span>
-                          </div>
-                      </li>
-                  <?php } ?>
+                    <?php if(!empty($class)) { ?>
+                        <li>
+                            <p class="label">CLASS</p>
+                            <div class="item display-flex">
+                                <img class="detail-icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-class.svg" /><span><?php echo $class; ?></span>
+                            </div>
+                        </li>
+                    <?php } ?>
                   <?php if(!empty($thc)) { ?>
                       <li>
                           <p class="label">THC</p>

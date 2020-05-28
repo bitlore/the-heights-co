@@ -109,6 +109,8 @@ body {
     .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield input[type=radio], .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select, .gform_wrapper select {
         height: 30px;
         border-radius: 0px;
+        line-height: 1em;
+        padding-top: 4.5px;
         color: $black !important;
         width: 100% !important;
         background: $white;
@@ -146,6 +148,12 @@ body {
         border: 0px;
         font-family: $font_primary !important;
         &:focus { outline: none !important; }
+    }
+    .gform_wrapper.gform_validation_error .top_label input.medium, .gform_wrapper.gform_validation_error .top_label select.medium {
+        width: 100%;
+    }
+    .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+        margin-top: 5px;
     }
 }
 
