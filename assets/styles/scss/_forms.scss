@@ -236,4 +236,12 @@ body {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
+    .gform_wrapper span.material-type {
+        width: 31%;
+        margin: .5em 1em 0 0;
+        @media screen and (max-width: $small) {
+            width: 100%;
+            margin: .5em 0 0 0;
+        }
+    }
 }

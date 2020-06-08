@@ -24,7 +24,7 @@ section.age-gate {
     display: none;
     opacity: 0;
     width: 300px;
-    padding: 60px 20px;
+    padding: 50px 20px;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -35,7 +35,8 @@ section.age-gate {
     .age-gate-inner {
         text-align: center;
         img {
-            height: 150px;
+            width: 75%;
+            margin-bottom: 15px;
         }
         p {
             font-size: 15px;

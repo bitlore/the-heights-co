@@ -67,6 +67,7 @@ function stickNav() {
 
 
 
+
 ////////////////////////////////////
 // Window Events //
 ////////////////////////////////////
@@ -84,6 +85,11 @@ window.onresize = function() {
 
 	var timer = window.setTimeout(function() {
 		stickNav();
+
+        if(window.location.href.indexOf("order") > -1) {
+            setOrderBg();
+        }
+
 	}, 100);
 };
 

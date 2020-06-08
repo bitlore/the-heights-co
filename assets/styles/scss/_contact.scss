@@ -8,7 +8,6 @@ Stylesheet: Contact Page
 
 .page-template-template-contact {
     .contact-top {
-        background-image: url('../images/contact-bg.png');
         background-position: top right;
         background-size: 100% auto;
         background-repeat: no-repeat;
@@ -118,9 +117,14 @@ Stylesheet: Contact Page
         }
         .location {
             margin-bottom: 25px;
-            img {
+            .logo {
                 width: 35px;
                 margin-right: 15px;
+                text-align: center;
+                img {
+                    max-width: 35px;
+                    max-height: 35px;
+                }
             }
             p {
                 font-family: $font_secondary;

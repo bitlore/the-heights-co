@@ -8,12 +8,10 @@ Stylesheet: Order Page
 
 .page-template-template-order {
     section.order-form {
-        background-image: url('../images/order-bg.png');
         background-size: 100% auto;
         background-position: top;
         background-repeat: no-repeat;
         @media screen and (max-width: $small) {
-            background-image: url('../images/order-bg-mobile.png');
             background-size: auto 100%;
         }
     }
