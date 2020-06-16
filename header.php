@@ -40,7 +40,7 @@
 
 			<div class="off-canvas-content" data-off-canvas-content>
 
-				<header class="header" role="banner">
+				<header class="header" role="banner" style="background-image: url('<?php echo get_field('hero_bg', 'option')['url']; ?>')">
                     <div  id="header-top" class="header-top grid-x grid-padding-x section-padding">
                 		<div class="cell small-12 align-center justify-center display-flex head-wrap">
                             <p class="header-text"><?php echo get_field('header_left_text', 'option'); ?></p>

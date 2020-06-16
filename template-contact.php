@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="content-wrap">
 
 	<section class="section-bottom-padding">
-		<div class="section-padding contact-top grid-x grid-padding-x">
+		<div class="section-padding contact-top grid-x grid-padding-x" style="background-image:url('<?php echo get_field('top_bg')['url']; ?>')">
 			<div class="form cell small-12 medium-6 display-flex direction-column justify-center">
 				<div class="form-wrapper">
 					<h1><?php echo get_field('form_headline'); ?></h1>
@@ -68,7 +68,13 @@ get_header(); ?>
 	                      </script>
 
 							<div class="location display-flex align-start">
-								<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
+								<div class="logo">
+									<?php if(!empty(get_sub_field('logo'))) { ?>
+										<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
+									<?php } else { ?>
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/map-marker.png" alt="Logo Fallback">
+									<?php } ?>
+								</div>
 								<div class="location-text">
 									<p class="name"><?php echo get_sub_field('name'); ?></p>
 									<p><?php echo get_sub_field('address'); ?></p>

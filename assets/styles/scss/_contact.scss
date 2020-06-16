@@ -121,6 +121,7 @@ Stylesheet: Contact Page
                 width: 35px;
                 margin-right: 15px;
                 text-align: center;
+                flex-shrink: 0;
                 img {
                     max-width: 35px;
                     max-height: 35px;
@@ -199,10 +200,20 @@ Stylesheet: Contact Page
                     padding: 0px 10px;
                     margin-bottom: 40px;
                 }
-                .location-text { min-width: 130px;}
+                .location-text {
+                    width: 150px;
+                }
                 .locations-wrap {
                     background: transparent;
                     padding: 40px 0px;
+                }
+            }
+            @media screen and (max-width: 479px) {
+                .location-text {
+                    width: auto;
+                }
+                .locations-list {
+                    justify-content: flex-start;
                 }
             }
 

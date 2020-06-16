@@ -1,8 +1,8 @@
 <div id="age-gate-overlay" class="age-gate-overlay"></div>
 <section id="age-gate" class="age-gate">
     <div class="age-gate-inner">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/the-heights-h-white.svg" alt="THC Logo">
-        <p class="title">THE HEIGHTS CO<p>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/the-heights-logo-white.svg" alt="THC Logo">
+        <!-- <p class="title">THE HEIGHTS CO<p> -->
         <!-- <p class="title">THANKS FOR<br />STOPPING BY!<p> -->
         <p>ARE YOU AT LEAST 21?</p>
         <div class="buttons">

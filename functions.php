@@ -219,8 +219,8 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
     				  <input name="input_6[]" type="number" value="" min="0" style="width:45px;color:black; font-family: UnitedSansRegMed; text-align: right;"/>
                       <label for="lb" style="font-family: UnitedSansRegMed;">lb(s)</label>
     			  </span>
-                  <span class="gfield_list_cell gfield_list_5_cell3" data-label="material" style="margin:.5em 1em 0 0;">
-                    <select name="input_6[]" style="width:8.5em;color:black;">
+                  <span class="gfield_list_cell gfield_list_5_cell3 material-type" data-label="material">
+                    <select name="input_6[]">
                       <option value="" selected>Material Type</option>
                       <option value="Flower">Flower</option>
                       <option value="Trim">Trim</option>

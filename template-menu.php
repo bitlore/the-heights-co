@@ -10,7 +10,7 @@ $coming_soon_headline = get_field('coming_soon_headline');
 
 get_header(); ?>
 
-	<div class="content-wrap section-bottom-padding">
+	<div class="content-wrap section-padding">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<section class="section-top-padding menu-intro grid-x grid-padding-x">
@@ -99,7 +99,7 @@ get_header(); ?>
 		if ( $comingSoonQuery->have_posts() ) : ?>
 			<section class="section-top-padding menu-intro grid-x grid-padding-x">
 				<?php if(!empty($coming_soon_headline)) { ?>
-					<div class="cell small-12 text-center">
+					<div class="cell small-12 text-center section-top-padding">
 							<h3 class="section-title"><span class="left">&#8226;</span> <?php echo $coming_soon_headline; ?> <span class="right">&#8226;</span></h3>
 					</div>
 				<?php } ?>

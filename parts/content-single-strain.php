@@ -23,7 +23,7 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
 ?>
 
 <section id="<?php echo $titleID; ?>" class="single-strain section-top-padding text-center">
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x section-top-padding grid-padding-x">
         <div class="strain-head  small-12 cell">
             <?php if (!empty($iconSrc)) { ?>
                 <img class="strain-icon" src="<?php echo $iconSrc; ?>" alt="<?php echo the_title(); ?> Icon">
@@ -68,7 +68,7 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
             </ul>
         </div>
     </div>
-    <div class="more-info grid-x grid-padding-x">
+    <div class="more-info grid-x grid-padding-x section-bottom-padding">
         <ul class="accordion small-12 cell" data-accordion data-allow-all-closed="true">
           <li class="accordion-item" data-accordion-item>
             <a href="#" class="accordion-title">MORE INFO
