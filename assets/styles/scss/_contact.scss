@@ -160,12 +160,13 @@ Stylesheet: Contact Page
               z-index: 2;
             }
             .marker {
-              background-image: url('../images/map-marker.png');
-              background-size: 30px 50px;
-              background-position: center bottom;
+              background-image: url('../images/map-marker-flipped.png');
+              background-size: 20px 30px;
+              background-position: center top;
               background-repeat: no-repeat;
-              padding-bottom: 50px;
-              top: -35px; //offset
+              padding-top: 36px;
+              top: 25px; //offset
+              transform: rotateX(180deg);
               p {
                   margin-bottom: 5px;
                   margin-top: 0px;
@@ -173,7 +174,7 @@ Stylesheet: Contact Page
                   text-transform: uppercase;
                   text-align: center;
                   min-width: 60px;
-                  font-size: rem(14);
+                  font-size: rem(8);
                   line-height: 1;
               }
             }
