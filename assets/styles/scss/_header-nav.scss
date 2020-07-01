@@ -147,9 +147,9 @@ nav.navigation {
 		}
 		@media screen and (max-width: $small) {
 			min-width: 0px;
-			&:last-child {
-				border-bottom: 1px solid rgba(255,255,255,.4);
-			}
+			// &:last-child {
+			// 	border-bottom: 1px solid rgba(255,255,255,.4);
+			// }
 		}
 	}
 	li a {

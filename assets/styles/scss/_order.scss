@@ -19,5 +19,8 @@ Stylesheet: Order Page
         width: 100%;
         max-width: 620px;
         margin: 0 auto;
+        @media screen and (max-width: $large) {
+            max-width: 450px;
+        }
     }
 }

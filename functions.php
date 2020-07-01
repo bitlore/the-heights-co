@@ -110,78 +110,6 @@ function get_available_strains() {
 }
 
 
-// add_filter( 'gform_pre_render_1', 'populate_array_of_strain_names' );
-// add_filter( 'gform_pre_validation_1', 'populate_array_of_strain_names' );
-// add_filter( 'gform_pre_submission_filter_1', 'populate_array_of_strain_names' );
-// add_filter( 'gform_admin_pre_render_1', 'populate_array_of_strain_names' );
-// function populate_array_of_strain_names( $form ) {
-//
-//     foreach ( $form['fields'] as &$field ) {
-//
-//         if ( $field->type != 'select' ) {
-//             continue;
-//         }
-//
-//         // you can add additional parameters here to alter the posts that are retrieved
-//         // more info: http://codex.wordpress.org/Template_Tags/get_posts
-//         $posts = get_available_strains();
-//
-//         $choices = array();
-//
-//         foreach ( $posts as $post ) {
-//
-//
-//             $title = $post->post_title;
-//
-//             $thc = get_field('thc') . ' THC';
-//
-//             $harvest = get_field('harvest_date');
-//
-//             $choices[] = array(
-//               'text' => $title . $thc . $harvest,
-//               'value' => $post->post_title
-//             );
-//         }
-//
-//         // update 'Select a Post' to whatever you'd like the instructive option to be
-//         $field->placeholder = 'Select a Strain';
-//         $field->choices = $choices;
-//
-//     }
-//
-//     return $form;
-// }
-
-
-// function populate_array_of_strain_names($value) {
-//
-//   $the_query = get_available_strains();
-//
-//   $names = array();
-//
-//   if ( $the_query->have_posts() ) {
-//     while ( $the_query->have_posts() ) {
-//       $the_query->the_post();
-//
-//       $title = get_the_title();
-//
-//       $key = str_replace(' ', '', $title);
-//
-//       $value = $title;
-//
-//       $names[$key] = $value;
-//
-//     }
-//   }
-//   else {
-//     //no strains available
-//   }
-//
-//   return $names;
-//
-// }
-
-// add_filter( 'gform_field_value_strain', 'populate_array_of_strain_names');
 
 function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 	//only filter on the front end
@@ -201,8 +129,10 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
       while ( $products->have_posts() ) : $products->the_post();
 
         $name = get_the_title();
+        $thc = get_field('thc');
+        $harvestDate = get_field('harvest_date');
 
-        $strain_title = $name . ', ' .  get_field('thc') . ', ' . get_field('harvest_date');
+        $strain_title = $name;
 
     		//form output
     		ob_start();
@@ -210,10 +140,9 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 
 
     		<div class="gfield_list gfield_list_container gfield_list_group" data-id="<?php echo $strain_title; ?>" style="margin-bottom:2.5em;display: flex; flex-wrap: wrap;">
-                  <span class="gfield_list_cell gfield_list_5_cell1" data-label="strain" style="display:inline-block;width:50%;">
+                  <span class="gfield_list_cell strain-name gfield_list_5_cell1" data-label="strain">
                     <input type="text" name="input_6[]" value="<?php echo $name; ?>" readonly="readonly" style="color:white; border:none; background:transparent; pointer-events:none; padding-left: 0; font-weight: bold; font-family: TradeGoth; text-transform: uppercase; letter-spacing: 1px;font-size: 1.2em;padding-bottom: 0px;padding-top: 0px; height: auto !important;">
-                    <br />
-                    <span style="font-size: .7em; font-family: UnitedSansRegMed;"><?php echo get_field('thc') ?> THC, Harvested <?php echo get_field('harvest_date') ?></span>
+                    <span style="font-size: .7em; font-family: UnitedSansRegMed; margin-bottom: 0px !important;"><?php if (!empty($thc)) { echo $thc; ?> THC <?php } ?><?php if (!empty($harvestDate)) { ?>Harvested <?php echo $harvestDate; ?><?php } ?></span>
                   </span>
     			  <span class="gfield_list_cell gfield_list_5_cell2" data-label="pounds" style="margin:.5em 1em 0 0;">
     				  <input name="input_6[]" type="number" value="" min="0" style="width:45px;color:black; font-family: UnitedSansRegMed; text-align: right;"/>
@@ -237,7 +166,19 @@ function generate_strain_form($content,$field,$value,$entry_id,$form_id){
 
       $content .= '</div>';
 
+    else :
+
+        $content .= '<div class="ginput_container ginput_container_list ginput_list">'; //form wrapper
+
+        $content .= '<br /><label class="gfield_label">No Available Strains</label><br />';
+
+        $content .= '<span style="margin-bottom:1em; font-size: .8em; font-family: UnitedSansRegMed;">Our flower is currently sold out, but if you\'re interested in pre-ordering, let us know the strain name and quantity you\'d like in the comment box below.</span><br /><br />';
+
+        $content .= '</div>';
+
+
     endif;
+
 
   endif;
 
@@ -267,7 +208,8 @@ function ea_disable_editor( $id = false ) {
         'template-contact.php',
         'template-gallery.php',
         'template-menu.php',
-        'template-order.php'
+        'template-order.php',
+        'template-about.php'
 	);
 
 	$excluded_ids = array(
@@ -318,7 +260,8 @@ function bitlore_remove_editor_from_some_pages()
         'template-contact.php',
         'template-gallery.php',
         'template-menu.php',
-        'template-order.php'
+        'template-order.php',
+        'template-about.php'
     );
 
     if( in_array($current_page_template_slug, $excluded_template_slugs) ) {

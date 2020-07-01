@@ -1,0 +1,26 @@
+/************************************************
+
+Stylesheet: About
+
+*************************************************/
+
+.page-template-template-about {
+    .gallery-wrap {
+        max-width: 900px;
+    }
+    .gallery-item {
+        margin-bottom: 70px;
+        @media screen and (max-width: $medium) {
+            margin-bottom: 100px;
+        }
+        a {
+            width: 100%;
+            display: block;
+        }
+        img {
+            max-width: 75%;
+            max-height: 150px;
+        }
+    }
+
+}

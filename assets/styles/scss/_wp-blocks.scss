@@ -67,6 +67,16 @@ section.wp-blocks {
     align-items: center;
     justify-content: center;
 }
+.logo-gallery .blocks-gallery-grid .blocks-gallery-image img,
+.logo-gallery .blocks-gallery-grid .blocks-gallery-item img,
+.wp-block-gallery.logo-gallery .blocks-gallery-image img,
+.wp-block-gallery.logo-gallery .blocks-gallery-item img {
+    max-width: 75%;
+    max-height: 150px;
+}
+.blocks-gallery-grid .blocks-gallery-image, .blocks-gallery-grid .blocks-gallery-item, .wp-block-gallery .blocks-gallery-image, .wp-block-gallery .blocks-gallery-item {
+    margin-bottom: 70px;
+}
 
 @media screen and (max-width: $small) {
     .blocks-gallery-grid .blocks-gallery-image, .blocks-gallery-grid .blocks-gallery-item, .wp-block-gallery .blocks-gallery-image, .wp-block-gallery .blocks-gallery-item {

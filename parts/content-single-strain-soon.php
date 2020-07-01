@@ -70,9 +70,10 @@ $available_date = get_field('available_date');
                     <?php } ?>
                 </ul>
                 <?php if (!empty($imageSrc)) { ?>
-                    <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
+                    <!-- <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery"> -->
+                    <div data-equalizer-watch class="gallery-link small-12 medium-5 cell">    
                         <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
-                    </a>
+                    </div>
                 <?php } else {
                     $opacity = get_field('fallback_opacity', 'options');
                     $opacityDecimal = $opacity / 100;

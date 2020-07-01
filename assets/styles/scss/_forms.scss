@@ -120,6 +120,9 @@ body {
             outline: none !important;
         }
     }
+    .gform_wrapper select option {
+        color: $black !important;
+    }
     .gfield_list_cell input, .gfield_list_cell select, .gfield_list_cell option {
         &:focus { outline: none !important;
         }
@@ -192,6 +195,9 @@ body {
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
+        @media screen and (max-width: $large) {
+            flex-wrap: wrap;
+        }
     }
     .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li {
         margin: 0px 15px;
@@ -242,6 +248,24 @@ body {
         @media screen and (max-width: $small) {
             width: 100%;
             margin: .5em 0 0 0;
+        }
+    }
+    .gform_wrapper span.strain-name {
+        width: 50%;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        margin-top: .5em;
+        justify-content: center;
+        @media screen and (max-width: $large) {
+            width: 41%;
+        }
+        @media screen and (max-width: $small) {
+            width: 55%;
+            margin-bottom: 0px !important;
         }
     }
 }

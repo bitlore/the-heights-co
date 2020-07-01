@@ -58,29 +58,33 @@ get_header(); ?>
 				<div class="locations-wrap">
 					<div class="locations-list">
 						<?php while(have_rows('locations')) { the_row(); ?>
+							<?php $hide = get_sub_field('hide');
 
-						  <script type="text/javascript">
-	                          var flowerLocation = new Object();
-	                          flowerLocation.name = "<?php echo get_sub_field('name'); ?>";
-	                          flowerLocation.lat = '<?php echo get_sub_field('latitude'); ?>';
-	                          flowerLocation.long = '<?php echo get_sub_field('longitude'); ?>';
-	                          locationsArray.push(flowerLocation);
-	                      </script>
+							if($hide != true) { ?>
 
-							<div class="location display-flex align-start">
-								<div class="logo">
-									<?php if(!empty(get_sub_field('logo'))) { ?>
-										<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
-									<?php } else { ?>
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/map-marker.png" alt="Logo Fallback">
-									<?php } ?>
+							  <script type="text/javascript">
+		                          var flowerLocation = new Object();
+		                          flowerLocation.name = "<?php echo get_sub_field('name'); ?>";
+		                          flowerLocation.lat = '<?php echo get_sub_field('latitude'); ?>';
+		                          flowerLocation.long = '<?php echo get_sub_field('longitude'); ?>';
+		                          locationsArray.push(flowerLocation);
+		                      </script>
+
+								<div class="location display-flex align-start">
+									<div class="logo">
+										<?php if(!empty(get_sub_field('logo'))) { ?>
+											<img src="<?php echo get_sub_field('logo')['url']; ?>" alt="Location Logo">
+										<?php } else { ?>
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/map-marker-flipped.png" alt="Logo Fallback">
+										<?php } ?>
+									</div>
+									<div class="location-text">
+										<p class="name"><?php echo get_sub_field('name'); ?></p>
+										<p><?php echo get_sub_field('address'); ?></p>
+									</div>
 								</div>
-								<div class="location-text">
-									<p class="name"><?php echo get_sub_field('name'); ?></p>
-									<p><?php echo get_sub_field('address'); ?></p>
-								</div>
-							</div>
-						<?php } ?>
+							<?php } ?> <!-- end if hide-->
+						<?php } ?> <!-- end while -->
 					</div>
 				</div>
 				<?php } ?>

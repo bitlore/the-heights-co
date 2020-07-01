@@ -210,6 +210,9 @@ Stylesheet: Contact Page
                 }
             }
             @media screen and (max-width: 479px) {
+                .location {
+                    width: 100%;
+                }
                 .location-text {
                     width: auto;
                 }

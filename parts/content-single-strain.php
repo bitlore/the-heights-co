@@ -84,9 +84,10 @@ $showPrices = get_field('show_prices_on_front_end', 'options');
             </a>
             <div class="accordion-content grid-x" data-tab-content style="display: none;" data-equalizer data-equalize-on="medium">
                 <?php if (!empty($imageSrc)) { ?>
-                    <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery">
+                    <!-- <a data-equalizer-watch class="gallery-link small-12 medium-5 cell" href="<?php echo get_site_url(); ?>/gallery"> -->
+                    <div data-equalizer-watch class="gallery-link small-12 medium-5 cell">
                         <img class="strain-image" src="<?php echo $imageSrc ?>" alt="Strain Image">
-                    </a>
+                    </div>
                 <?php } else {
                     $opacity = get_field('fallback_opacity', 'options');
                     $opacityDecimal = $opacity / 100;
