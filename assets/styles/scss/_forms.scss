@@ -238,9 +238,27 @@ body {
     .gform_wrapper ul li.gfield {
         margin-top: 25px;
     }
+    ul.gform_fields {
+        display: -webkit-box !important;
+    	display: -moz-box  !important;
+    	display: -ms-flexbox  !important;
+    	display: -webkit-flex  !important;
+    	display: flex  !important;
+        width: 100%;
+        flex-wrap: wrap;
+        input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+            width: 100%;
+        }
+    }
     .gform_wrapper ul.gform_fields li.gfield {
         padding-left: 8px !important;
         padding-right: 8px !important;
+        width: 100%;
+    }
+    .gform_wrapper form li, .gform_wrapper li {
+        @media screen and (max-width: $small) {
+            width: 100% !important;
+        }
     }
     .gform_wrapper span.material-type {
         width: 31%;
